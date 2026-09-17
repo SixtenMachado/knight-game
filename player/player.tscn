@@ -30,11 +30,15 @@ radial_segments = 5
 rings = 0
 cap_bottom = false
 
-[node name="Player" type="CharacterBody3D" unique_id=1601156460]
+[node name="Player" type="CharacterBody3D" unique_id=1601156460 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_oul6g")
 speed = 1.6
 rotate_speed = 3.0
+timer = NodePath("MovementDisableTimer")
 metadata/_custom_type_script = "uid://bcwxatkn73bid"
+
+[node name="MovementDisableTimer" type="Timer" parent="." unique_id=164147781]
+one_shot = true
 
 [node name="AutoShaderApplication" type="Node" parent="." unique_id=1918497780]
 script = ExtResource("2_g1dw6")
@@ -79,5 +83,7 @@ player = NodePath("..")
 [node name="TestMesh" type="MeshInstance3D" parent="TestPivot" unique_id=160360059]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.3708783, 0.72581553)
 mesh = SubResource("CylinderMesh_5fmjx")
+
+[connection signal="timeout" from="MovementDisableTimer" to="." method="_on_movement_disable_timer_timeout"]
 
 [editable path="knightnew"]

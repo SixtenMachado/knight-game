@@ -8,9 +8,11 @@
 render_priority = 0
 shader = ExtResource("1_jkvsi")
 shader_parameter/input_texture = ExtResource("2_jkvsi")
-shader_parameter/red_color = Color(0.16078432, 0.1882353, 0.11764706, 1)
 shader_parameter/black_color = Color(0.1254902, 0.12156863, 0.050980393, 1)
+shader_parameter/red_color = Color(0.16078432, 0.1882353, 0.11764706, 1)
+shader_parameter/emission_mult = 0.0
 shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/squiggle = false
 shader_parameter/scale = Vector2(1, 1)
 shader_parameter/strength = 0.5
 shader_parameter/fps = 6.0
