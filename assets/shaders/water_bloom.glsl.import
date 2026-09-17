@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://dj3lle7orae8a"
+path="res://.godot/imported/water_bloom.glsl-0214cddcff0e5bf06f9d7fada3770a90.res"
+
+[deps]
+
+source_file="res://assets/shaders/water_bloom.glsl"
+dest_files=["res://.godot/imported/water_bloom.glsl-0214cddcff0e5bf06f9d7fada3770a90.res"]
+
+[params]
+

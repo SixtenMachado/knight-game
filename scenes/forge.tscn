@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dqk767e6uhhje"]
+
+[ext_resource type="Script" uid="uid://cuxady6g7wl4r" path="res://tools/auto_shader_application.gd" id="1_ebsuy"]
+[ext_resource type="PackedScene" uid="uid://bhs1p8fx25drt" path="res://blender/forge moment.blend" id="2_cc85a"]
+[ext_resource type="Material" uid="uid://cb71ulidmcon3" path="res://assets/materials/rustiron_blackened.tres" id="3_nygfm"]
+[ext_resource type="Material" uid="uid://d1droosisk1tl" path="res://assets/materials/timber_log.tres" id="4_wy20o"]
+[ext_resource type="Material" uid="uid://c4gmqttw28vqm" path="res://assets/materials/rustiron_bands.tres" id="5_jxlti"]
+[ext_resource type="Material" uid="uid://bjoujnjocwg8b" path="res://assets/materials/pine_bark.tres" id="6_li5uj"]
+[ext_resource type="Material" uid="uid://evxp1g4o02jx" path="res://assets/materials/timber_beams.tres" id="7_uuxro"]
+[ext_resource type="Material" uid="uid://bm0kye8dgqasm" path="res://assets/materials/thatch_roof.tres" id="8_xbhrl"]
+
+[node name="forge" type="Node3D" unique_id=709779060]
+
+[node name="AutoShaderApplication" type="Node" parent="." unique_id=887454325]
+script = ExtResource("1_ebsuy")
+metadata/_custom_type_script = "uid://cuxady6g7wl4r"
+
+[node name="forge moment" parent="." unique_id=646230726 instance=ExtResource("2_cc85a")]
+
+[node name="calipers" parent="forge moment" index="0" unique_id=1980704368]
+surface_material_override/0 = ExtResource("3_nygfm")
+
+[node name="Camera" parent="forge moment" index="1" unique_id=581577488]
+transform = Transform3D(0.6503534, 0.13873482, -0.7468555, 0, 0.98318094, 0.1826343, 0.7596318, -0.11877683, 0.639415, -25.764465, 10.516481, 24.310272)
+
+[node name="forge log" parent="forge moment" index="2" unique_id=1056280350]
+surface_material_override/0 = ExtResource("4_wy20o")
+surface_material_override/1 = ExtResource("5_jxlti")
+surface_material_override/2 = ExtResource("6_li5uj")
+
+[node name="hammerhandle" parent="forge moment" index="3" unique_id=579354007]
+surface_material_override/0 = ExtResource("7_uuxro")
+surface_material_override/1 = ExtResource("5_jxlti")
+surface_material_override/2 = ExtResource("4_wy20o")
+
+[node name="Light" parent="forge moment" index="4" unique_id=1784919282]
+transform = Transform3D(-0.2908647, -0.77110094, 0.56639314, -0.05518904, 0.6045247, 0.79467237, -0.95517117, 0.19988346, -0.2183912, 7.7645407, 2.3793688, -0.6049968)
+light_color = Color(1, 0.70533335, 0.48000002, 1)
+
+[node name="stake anvil" parent="forge moment" index="5" unique_id=7795984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15582561, 1.2238834, 0.1220243)
+surface_material_override/0 = ExtResource("3_nygfm")
+surface_material_override/1 = ExtResource("5_jxlti")
+
+[node name="thatch roof" parent="forge moment" index="6" unique_id=1060498789]
+surface_material_override/0 = ExtResource("8_xbhrl")
+
+[node name="wooden supports" parent="forge moment" index="7" unique_id=1318982125]
+surface_material_override/0 = ExtResource("7_uuxro")
+surface_material_override/1 = ExtResource("5_jxlti")
+
+[editable path="forge moment"]

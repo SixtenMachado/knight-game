@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://br250up88v16q"]
+
+[ext_resource type="Script" uid="uid://bcwxatkn73bid" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://cuxady6g7wl4r" path="res://tools/auto_shader_application.gd" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://clgjh8w7knl4h" path="res://blender/knightnew.blend" id="3_yw30f"]
+[ext_resource type="Material" uid="uid://q62qpke3udtv" path="res://assets/materials/leather_belt.tres" id="4_2ieo8"]
+[ext_resource type="Material" uid="uid://ce774jksrmatq" path="res://assets/materials/metal_clasp.tres" id="5_ebec5"]
+[ext_resource type="Material" uid="uid://cv3u6g73xoqis" path="res://assets/materials/leather_pouch.tres" id="6_yllr7"]
+[ext_resource type="Material" uid="uid://dk467go3uxonq" path="res://assets/materials/mail_chainmail.tres" id="7_kb6p2"]
+[ext_resource type="Material" uid="uid://c4kns44xuer57" path="res://assets/materials/scribble.tres" id="8_wodsf"]
+[ext_resource type="Material" uid="uid://cg846j1rar3ck" path="res://assets/materials/fabric_padding.tres" id="9_32hag"]
+[ext_resource type="Material" uid="uid://bkmcuhbdt6og6" path="res://assets/materials/leather_boot.tres" id="10_tqiix"]
+[ext_resource type="Material" uid="uid://pxsnxjx7clip" path="res://assets/materials/fabric_hood.tres" id="11_e7oew"]
+[ext_resource type="Script" uid="uid://bu5u5o5qrtwj2" path="res://player/act.gd" id="12_ebec5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rpa8f"]
+radius = 0.27734375
+height = 1.7641602
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebec5"]
+emission_enabled = true
+emission = Color(0.68633336, 0, 0.71, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5fmjx"]
+material = SubResource("StandardMaterial3D_ebec5")
+top_radius = 0.1
+bottom_radius = 0.0
+height = 0.4
+radial_segments = 5
+rings = 0
+cap_bottom = false
+
+[node name="Player" type="CharacterBody3D" unique_id=1601156460]
+script = ExtResource("1_oul6g")
+speed = 1.6
+rotate_speed = 3.0
+metadata/_custom_type_script = "uid://bcwxatkn73bid"
+
+[node name="AutoShaderApplication" type="Node" parent="." unique_id=1918497780]
+script = ExtResource("2_g1dw6")
+metadata/_custom_type_script = "uid://cuxady6g7wl4r"
+
+[node name="knightnew" parent="." unique_id=675522172 instance=ExtResource("3_yw30f")]
+
+[node name="Belt" parent="knightnew" index="0" unique_id=1375764745]
+surface_material_override/0 = ExtResource("4_2ieo8")
+surface_material_override/1 = ExtResource("5_ebec5")
+surface_material_override/2 = ExtResource("6_yllr7")
+
+[node name="Body" parent="knightnew" index="1" unique_id=569478801]
+surface_material_override/0 = ExtResource("7_kb6p2")
+surface_material_override/1 = ExtResource("8_wodsf")
+surface_material_override/2 = ExtResource("9_32hag")
+surface_material_override/3 = ExtResource("10_tqiix")
+metadata/_edit_lock_ = true
+
+[node name="Cloak" parent="knightnew" index="2" unique_id=1166343173]
+surface_material_override/0 = ExtResource("5_ebec5")
+surface_material_override/1 = ExtResource("11_e7oew")
+
+[node name="Leg_L" parent="knightnew" index="3" unique_id=205368222]
+surface_material_override/0 = ExtResource("10_tqiix")
+surface_material_override/1 = ExtResource("9_32hag")
+
+[node name="Leg_R" parent="knightnew" index="4" unique_id=1093630717]
+surface_material_override/0 = ExtResource("10_tqiix")
+surface_material_override/1 = ExtResource("9_32hag")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1949472444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8820801, 0)
+shape = SubResource("CapsuleShape3D_rpa8f")
+
+[node name="Act" type="Node" parent="." unique_id=1405550148 node_paths=PackedStringArray("player")]
+script = ExtResource("12_ebec5")
+player = NodePath("..")
+
+[node name="TestPivot" type="Node3D" parent="." unique_id=253901589]
+
+[node name="TestMesh" type="MeshInstance3D" parent="TestPivot" unique_id=160360059]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.3708783, 0.72581553)
+mesh = SubResource("CylinderMesh_5fmjx")
+
+[editable path="knightnew"]

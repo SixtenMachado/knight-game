@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bm0kye8dgqasm"]
+
+[ext_resource type="Shader" uid="uid://numdaejqg6s2" path="res://assets/shaders/color_ramp_double_sided.gdshader" id="1_fyob2"]
+[ext_resource type="Texture2D" uid="uid://qlrrade2svhb" path="res://textures/thatch.png" id="2_fyob2"]
+[ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="3_b8261"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fyob2")
+shader_parameter/input_texture = ExtResource("2_fyob2")
+shader_parameter/black_color = Color(0.1882353, 0.1764706, 0.17254902, 1)
+shader_parameter/red_color = Color(0.5529412, 0.5254902, 0.39607844, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_b8261")

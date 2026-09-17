@@ -1,0 +1,317 @@
+[gd_scene format=3 uid="uid://61eavp3sm71x"]
+
+[ext_resource type="Script" uid="uid://cd6xw0esc5ed6" path="res://assets/shaders/accumulation_blur.gd" id="1_70uel"]
+[ext_resource type="Shader" uid="uid://b8m4j5xin7cgv" path="res://assets/shaders/bloom.gdshader" id="2_70uel"]
+[ext_resource type="Texture2D" uid="uid://btxtsdpfi5pqc" path="res://textures/tobymoment.png" id="3_70uel"]
+[ext_resource type="Texture2D" uid="uid://lxw3sk1dr86h" path="res://textures/knightsky.png" id="4_il2jm"]
+[ext_resource type="Script" uid="uid://cuxady6g7wl4r" path="res://tools/auto_shader_application.gd" id="5_ikiii"]
+[ext_resource type="PackedScene" uid="uid://clgjh8w7knl4h" path="res://blender/knightnew.blend" id="6_cbp6q"]
+[ext_resource type="Material" uid="uid://q62qpke3udtv" path="res://assets/materials/leather_belt.tres" id="7_26xuy"]
+[ext_resource type="Material" uid="uid://ce774jksrmatq" path="res://assets/materials/metal_clasp.tres" id="8_bc84e"]
+[ext_resource type="Material" uid="uid://cv3u6g73xoqis" path="res://assets/materials/leather_pouch.tres" id="9_wukud"]
+[ext_resource type="Material" uid="uid://dk467go3uxonq" path="res://assets/materials/mail_chainmail.tres" id="10_il2jm"]
+[ext_resource type="Material" uid="uid://c4kns44xuer57" path="res://assets/materials/scribble.tres" id="11_wjb0r"]
+[ext_resource type="Material" uid="uid://cg846j1rar3ck" path="res://assets/materials/fabric_padding.tres" id="12_mc2jv"]
+[ext_resource type="Material" uid="uid://bkmcuhbdt6og6" path="res://assets/materials/leather_boot.tres" id="13_bo7i5"]
+[ext_resource type="Material" uid="uid://pxsnxjx7clip" path="res://assets/materials/fabric_hood.tres" id="14_4h6ng"]
+[ext_resource type="PackedScene" uid="uid://bqhsfse2vo5fj" path="res://blender/bridge.blend" id="15_il2jm"]
+[ext_resource type="Material" uid="uid://deaht427107oi" path="res://assets/materials/stonebricks_bridge.tres" id="16_wjb0r"]
+[ext_resource type="Material" uid="uid://bs2gtu5vaox77" path="res://assets/materials/grass_yellow.tres" id="17_mc2jv"]
+[ext_resource type="Material" uid="uid://5bejno5y6ymf" path="res://assets/materials/grass_green.tres" id="18_bo7i5"]
+[ext_resource type="Material" uid="uid://bu3hlvdrepsb6" path="res://assets/materials/dirt_grassy.tres" id="19_il2jm"]
+[ext_resource type="Material" uid="uid://bdk3fydrqmnac" path="res://assets/materials/mud.tres" id="20_wjb0r"]
+[ext_resource type="Material" uid="uid://c14ugnm77pao2" path="res://assets/materials/heather.tres" id="21_k83mh"]
+[ext_resource type="Material" uid="uid://cw6y400cehyvs" path="res://assets/materials/mail_rock.tres" id="22_mc2jv"]
+[ext_resource type="Material" uid="uid://3xwi27wku6pi" path="res://assets/materials/mail_rock_mossy.tres" id="23_bo7i5"]
+[ext_resource type="Texture2D" uid="uid://mtf3afq3rf62" path="res://Ori-the-Dwarf-The-Hobbit.jpg" id="24_mc2jv"]
+[ext_resource type="Script" uid="uid://dr6q0pc5mt24u" path="res://hobbit.gd" id="25_bo7i5"]
+[ext_resource type="AudioStream" uid="uid://ckcrgc8gw32jg" path="res://jermachimp4.ogg" id="26_bo7i5"]
+[ext_resource type="PackedScene" uid="uid://bp1ljiaru07k" path="res://blender/GOAT DEER GARGOYLE.blend" id="27_4h6ng"]
+[ext_resource type="Material" uid="uid://b8mg3mccakpbp" path="res://assets/materials/mail.tres" id="28_o3ebs"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_6a6wx"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_70uel")
+alpha = 0.07
+metadata/_custom_type_script = "uid://cd6xw0esc5ed6"
+
+[sub_resource type="Compositor" id="Compositor_6udo1"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_6a6wx")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj5cn"]
+shader = ExtResource("2_70uel")
+shader_parameter/bands = 11
+shader_parameter/band_pixel_width = 9.0
+shader_parameter/division_mult = 1.0
+shader_parameter/exponential_steps = 7
+shader_parameter/curb = 20.0
+shader_parameter/albedo = ExtResource("3_70uel")
+shader_parameter/albedo_scale = 1.25
+shader_parameter/speed = Vector2(0.04, 0)
+shader_parameter/speed2 = Vector2(0, 0.025)
+shader_parameter/hue_shift = 0.0
+shader_parameter/saturation_mult = 1.0
+shader_parameter/value_mult = 1.0
+shader_parameter/brightness_add = 0.0
+shader_parameter/contrast_mult = 1.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mae0i"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0.011764706, 0.011764706, 1)
+sky_energy_multiplier = 0.5
+sky_cover = ExtResource("4_il2jm")
+sky_cover_modulate = Color(0.9019608, 0.95686275, 1, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+ground_energy_multiplier = 0.0
+sun_angle_max = 7.0
+sun_curve = 1.639245
+use_debanding = false
+energy_multiplier = 2.25
+
+[sub_resource type="Sky" id="Sky_5fmjx"]
+sky_material = SubResource("ProceduralSkyMaterial_mae0i")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_rpa8f"]
+background_mode = 2
+sky = SubResource("Sky_5fmjx")
+ambient_light_source = 3
+volumetric_fog_density = 0.0092
+volumetric_fog_albedo = Color(0.18000486, 0.18000486, 0.18000486, 1)
+
+[sub_resource type="Animation" id="Animation_4h6ng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o3ebs"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k83mh"]
+_data = {
+&"RESET": SubResource("Animation_4h6ng"),
+&"new_animation": SubResource("Animation_o3ebs")
+}
+
+[node name="World" type="Node3D" unique_id=272131881]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=185004334]
+transform = Transform3D(-0.26786453, -0.816366, -0.5116596, -0.93432796, 0.09050967, 0.34473014, -0.23511562, 0.57039905, -0.7869981, 4.3623514, 12.717668, -2.2541957)
+shadow_blur = 1.91
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=25587144]
+transform = Transform3D(0.9444696, 0.0045628604, 0.32856724, 0, 0.99990356, -0.013885804, -0.32859892, 0.01311472, 0.9443785, 18.369234, 2.599149, 19.226988)
+compositor = SubResource("Compositor_6udo1")
+fov = 58.6
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1332262948]
+material = SubResource("ShaderMaterial_fj5cn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1954478771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7580006, 1.5612459, -5.8788195)
+light_color = Color(1, 0.61960787, 0.3372549, 1)
+light_energy = 50.0
+light_specular = 0.0
+omni_range = 15.510504
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1465567909]
+environment = SubResource("Environment_rpa8f")
+
+[node name="AutoShaderApplication" type="Node" parent="." unique_id=285099560]
+script = ExtResource("5_ikiii")
+metadata/_custom_type_script = "uid://cuxady6g7wl4r"
+
+[node name="knightnew" parent="." unique_id=1524369601 instance=ExtResource("6_cbp6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.299547, 0.06572604, -11.654076)
+
+[node name="Belt" parent="knightnew" index="0" unique_id=1041319425]
+surface_material_override/0 = ExtResource("7_26xuy")
+surface_material_override/1 = ExtResource("8_bc84e")
+surface_material_override/2 = ExtResource("9_wukud")
+
+[node name="Body" parent="knightnew" index="1" unique_id=2017726860]
+surface_material_override/0 = ExtResource("10_il2jm")
+surface_material_override/1 = ExtResource("11_wjb0r")
+surface_material_override/2 = ExtResource("12_mc2jv")
+surface_material_override/3 = ExtResource("13_bo7i5")
+
+[node name="Cloak" parent="knightnew" index="2" unique_id=1437592977]
+surface_material_override/0 = ExtResource("8_bc84e")
+surface_material_override/1 = ExtResource("14_4h6ng")
+
+[node name="Leg_L" parent="knightnew" index="3" unique_id=1672791242]
+surface_material_override/0 = ExtResource("13_bo7i5")
+surface_material_override/1 = ExtResource("12_mc2jv")
+
+[node name="Leg_R" parent="knightnew" index="4" unique_id=719975065]
+surface_material_override/0 = ExtResource("13_bo7i5")
+surface_material_override/1 = ExtResource("12_mc2jv")
+
+[node name="bridge" parent="." unique_id=1461150449 instance=ExtResource("15_il2jm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4823475, 0, 0)
+
+[node name="Bridge" parent="bridge" index="1" unique_id=626908070]
+surface_material_override/0 = ExtResource("16_wjb0r")
+
+[node name="grass" parent="bridge" index="2" unique_id=1695518625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.627065, -0.6024066, 3.6542068)
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_001" parent="bridge" index="3" unique_id=1786268681]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_002" parent="bridge" index="4" unique_id=757285277]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_003" parent="bridge" index="5" unique_id=1966933477]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_004" parent="bridge" index="6" unique_id=592540642]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_005" parent="bridge" index="7" unique_id=647435414]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_006" parent="bridge" index="8" unique_id=1218508812]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_007" parent="bridge" index="9" unique_id=1111815434]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="grass_008" parent="bridge" index="10" unique_id=120068305]
+surface_material_override/0 = ExtResource("17_mc2jv")
+surface_material_override/1 = ExtResource("18_bo7i5")
+
+[node name="Ground" parent="bridge" index="11" unique_id=1421151006]
+surface_material_override/0 = ExtResource("19_il2jm")
+surface_material_override/1 = ExtResource("20_wjb0r")
+
+[node name="Heather" parent="bridge" index="12" unique_id=2120518359]
+surface_material_override/0 = ExtResource("21_k83mh")
+
+[node name="Heather_001" parent="bridge" index="13" unique_id=1170294809]
+surface_material_override/0 = ExtResource("21_k83mh")
+
+[node name="Point" parent="bridge" index="14" unique_id=1772189970]
+visible = false
+light_energy = 16.0
+omni_range = 3.9145532
+
+[node name="Point_001" parent="bridge" index="15" unique_id=876620831]
+visible = false
+light_energy = 16.0
+
+[node name="Point_002" parent="bridge" index="16" unique_id=1366108044]
+visible = false
+light_energy = 16.0
+
+[node name="Stone" parent="bridge" index="17" unique_id=1684349618]
+surface_material_override/0 = ExtResource("22_mc2jv")
+surface_material_override/1 = ExtResource("23_bo7i5")
+
+[node name="Stone_001" parent="bridge" index="18" unique_id=563975074]
+surface_material_override/0 = ExtResource("22_mc2jv")
+surface_material_override/1 = ExtResource("23_bo7i5")
+
+[node name="Stone_003" parent="bridge" index="19" unique_id=1261057787]
+surface_material_override/0 = ExtResource("22_mc2jv")
+surface_material_override/1 = ExtResource("23_bo7i5")
+
+[node name="Stone_004" parent="bridge" index="20" unique_id=671626779]
+surface_material_override/0 = ExtResource("23_bo7i5")
+
+[node name="Stone_005" parent="bridge" index="21" unique_id=568965575]
+surface_material_override/0 = ExtResource("22_mc2jv")
+
+[node name="Stone_006" parent="bridge" index="22" unique_id=450460742]
+surface_material_override/0 = ExtResource("22_mc2jv")
+
+[node name="Stone_007" parent="bridge" index="23" unique_id=753437367]
+surface_material_override/0 = ExtResource("22_mc2jv")
+surface_material_override/1 = ExtResource("23_bo7i5")
+
+[node name="Stone_008" parent="bridge" index="24" unique_id=1356983197]
+surface_material_override/0 = ExtResource("22_mc2jv")
+surface_material_override/1 = ExtResource("23_bo7i5")
+
+[node name="Stone_craggy" parent="bridge" index="25" unique_id=787356897]
+surface_material_override/0 = ExtResource("23_bo7i5")
+surface_material_override/1 = ExtResource("22_mc2jv")
+
+[node name="Stone_craggy_001" parent="bridge" index="26" unique_id=955067411]
+surface_material_override/0 = ExtResource("23_bo7i5")
+surface_material_override/1 = ExtResource("22_mc2jv")
+
+[node name="Sun" parent="bridge" index="27" unique_id=1537628511]
+visible = false
+
+[node name="hobbit" type="TextureRect" parent="." unique_id=1290194547]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_mc2jv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hobbit" unique_id=1697761432]
+libraries/ = SubResource("AnimationLibrary_k83mh")
+script = ExtResource("25_bo7i5")
+
+[node name="Jermachimp4" type="AudioStreamPlayer" parent="hobbit/AnimationPlayer" unique_id=1556085534]
+stream = ExtResource("26_bo7i5")
+volume_db = -6.134
+
+[node name="GOAT DEER GARGOYLE" parent="." unique_id=517412051 instance=ExtResource("27_4h6ng")]
+transform = Transform3D(0.96431804, 0, 0.26474646, 0.112662196, 0.9049361, -0.4103631, -0.23957863, 0.42554748, 0.87264615, -4.308157, 13.830939, -16.602835)
+
+[node name="gargoyle" parent="GOAT DEER GARGOYLE" index="0" unique_id=1368560055]
+transform = Transform3D(0.18952309, 0.13243784, 0.9729041, -0.335322, 0.9400208, -0.06264093, -0.9228441, -0.31436473, 0.22256441, -7.4453516, -3.037784, 16.367178)
+surface_material_override/0 = ExtResource("28_o3ebs")
+
+[editable path="knightnew"]
+[editable path="bridge"]
+[editable path="GOAT DEER GARGOYLE"]

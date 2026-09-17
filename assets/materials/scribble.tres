@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c4kns44xuer57"]
+
+[ext_resource type="Shader" uid="uid://dxpn205ftqf4w" path="res://assets/shaders/face_scribble.gdshader" id="1_5xgpq"]
+[ext_resource type="Texture2D" uid="uid://dqanv4cmhxkvk" path="res://textures/scribble.png" id="2_572wf"]
+[ext_resource type="Texture2D" uid="uid://btxtsdpfi5pqc" path="res://textures/tobymoment.png" id="3_5xgpq"]
+
+[resource]
+render_priority = 10
+shader = ExtResource("1_5xgpq")
+shader_parameter/input_texture = ExtResource("2_572wf")
+shader_parameter/blackness = 4.5
+shader_parameter/black_color = Color(0, 0, 0, 1)
+shader_parameter/red_color = Color(0, 0, 0, 1)
+shader_parameter/uv_mult = Vector2(1, 1)
+shader_parameter/edgefade = 2.7710001316225
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 25.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_5xgpq")

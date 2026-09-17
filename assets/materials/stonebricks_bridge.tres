@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://deaht427107oi"]
+
+[ext_resource type="Shader" uid="uid://numdaejqg6s2" path="res://assets/shaders/color_ramp_double_sided.gdshader" id="1_wyllg"]
+[ext_resource type="Texture2D" uid="uid://c0bjthmgs4gn0" path="res://textures/stonebricks.png" id="2_wyllg"]
+[ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="3_8wwpe"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wyllg")
+shader_parameter/input_texture = ExtResource("2_wyllg")
+shader_parameter/black_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+shader_parameter/red_color = Color(0.08627451, 0.10980392, 0.07450981, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_8wwpe")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b5e5wg0q5737m"]
+
+[ext_resource type="Script" uid="uid://cd6xw0esc5ed6" path="res://assets/shaders/accumulation_blur.gd" id="1_e6lar"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_6a6wx"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_e6lar")
+alpha = 0.485
+metadata/_custom_type_script = "uid://cd6xw0esc5ed6"
+
+[sub_resource type="Compositor" id="Compositor_2bu0n"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_6a6wx")])
+
+[node name="Camera3D" type="Camera3D" unique_id=1231323592]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
+compositor = SubResource("Compositor_2bu0n")

@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bq3e2sdt2pkv5"]
+
+[ext_resource type="Shader" uid="uid://numdaejqg6s2" path="res://assets/shaders/color_ramp_double_sided.gdshader" id="1_xl6t2"]
+[ext_resource type="Texture2D" uid="uid://c32mecxfvaoad" path="res://textures/john.png" id="2_fqyxa"]
+[ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="3_42xb3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xl6t2")
+shader_parameter/input_texture = ExtResource("2_fqyxa")
+shader_parameter/red_color = Color(0, 0, 0, 1)
+shader_parameter/black_color = Color(1, 0, 1, 1)
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_42xb3")
