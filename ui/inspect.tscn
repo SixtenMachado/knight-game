@@ -1,0 +1,414 @@
+[gd_scene format=3 uid="uid://bbuov1vuokcr5"]
+
+[ext_resource type="Theme" uid="uid://g1jsgos6yds4" path="res://assets/fonts/text_theme.tres" id="1_6gedl"]
+[ext_resource type="Shader" uid="uid://cu6dvynygv600" path="res://assets/fonts/wobbly text.gdshader" id="1_wnway"]
+[ext_resource type="Script" uid="uid://o8vrdxf8ig3e" path="res://ui/fly_rich_text_effect.gd" id="3_6gedl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vn85e"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_wnway"]
+colors = PackedColorArray(0.038397167, 0.038397167, 0.03839716, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6gedl"]
+gradient = SubResource("Gradient_wnway")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.055555556, 0.517094)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnway"]
+shader = ExtResource("1_wnway")
+shader_parameter/italic = 0.25
+shader_parameter/warp_frequency = 15.0
+shader_parameter/warp_amplitude = 0.5
+shader_parameter/horizontal_warp_amplitude = 0.05
+shader_parameter/warp_speed = 1.0
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_vn85e"]
+script = ExtResource("3_6gedl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3qxk"]
+shader = ExtResource("1_wnway")
+shader_parameter/italic = 0.25
+shader_parameter/warp_frequency = 15.0
+shader_parameter/warp_amplitude = 0.5
+shader_parameter/horizontal_warp_amplitude = 0.05
+shader_parameter/warp_speed = 1.0
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_m7kbu"]
+script = ExtResource("3_6gedl")
+
+[sub_resource type="Animation" id="Animation_wnway"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/warp_amplitude")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../MarginContainer/Se:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../MarginContainer/Se:material:shader_parameter/warp_amplitude")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../../../TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../MarginContainer/Se:material:shader_parameter/horizontal_warp_amplitude")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:material:shader_parameter/horizontal_warp_amplitude")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../../..:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6gedl"]
+resource_name = "appear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 2.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/warp_amplitude")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 2.733333),
+"transitions": PackedFloat32Array(1, 0.17677669),
+"update": 0,
+"values": [10.000000475, 0.6000000285]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/horizontal_warp_amplitude")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.70000005, 3),
+"transitions": PackedFloat32Array(0.33, 1),
+"update": 0,
+"values": [15.0000007125, 0.05]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../MarginContainer/Se:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../MarginContainer/Se:material:shader_parameter/warp_amplitude")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 0.18301104),
+"update": 0,
+"values": [10.000000475, 0.6000000285]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../../TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../MarginContainer/Se:material:shader_parameter/horizontal_warp_amplitude")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(0.33, 1),
+"update": 0,
+"values": [15.0000007125, 0.05]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../../..:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vn85e"]
+resource_name = "vanish"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/warp_amplitude")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 3),
+"transitions": PackedFloat32Array(0.17677669, 1),
+"update": 0,
+"values": [0.6000000285, 10.000000475]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333333, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../MarginContainer/Se:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4666667, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../MarginContainer/Se:material:shader_parameter/warp_amplitude")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.18301104, 1),
+"update": 0,
+"values": [0.6000000285, 10.000000475]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../../TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../MarginContainer/Se:material:shader_parameter/horizontal_warp_amplitude")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 0.33),
+"update": 0,
+"values": [0.05, 40.0000019]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:material:shader_parameter/horizontal_warp_amplitude")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 0.33),
+"update": 0,
+"values": [0.05, 40.0000019]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vn85e"]
+_data = {
+&"RESET": SubResource("Animation_wnway"),
+&"appear": SubResource("Animation_6gedl"),
+&"vanish": SubResource("Animation_vn85e")
+}
+
+[node name="Inspect" type="Control" unique_id=1669182713]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1776770377]
+material = SubResource("CanvasItemMaterial_vn85e")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6gedl")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=62100682]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -97.0
+offset_right = 400.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=653274128]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1619574252]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_constants/margin_bottom = -10
+
+[node name="Se" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=2094214730]
+material = SubResource("ShaderMaterial_wnway")
+clip_contents = false
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_6gedl")
+theme_override_colors/default_color = Color(0.768, 0.776, 0.8, 1)
+bbcode_enabled = true
+text = "En hög med Ben. Ruttna. De ligger stadigt på havets botten."
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_vn85e")]
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2120394117]
+layout_mode = 2
+
+[node name="En" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=1400491815]
+material = SubResource("ShaderMaterial_l3qxk")
+clip_contents = false
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_6gedl")
+theme_override_colors/default_color = Color(0.6287477, 0.652959, 0.72571343, 1)
+bbcode_enabled = true
+text = "A bunch of Bones. Rotting. They lie steady on the bottom of the sea."
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_m7kbu")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1090502315]
+root_node = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/En")
+libraries/ = SubResource("AnimationLibrary_vn85e")
+autoplay = &"RESET"

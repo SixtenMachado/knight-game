@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cyu0u71vlstrq"]
 
 [ext_resource type="Script" uid="uid://cuxady6g7wl4r" path="res://tools/auto_shader_application.gd" id="1_sg3ht"]
-[ext_resource type="Script" uid="uid://cd6xw0esc5ed6" path="res://assets/shaders/accumulation_blur.gd" id="2_crnqe"]
 [ext_resource type="PackedScene" uid="uid://b5e5wg0q5737m" path="res://scenes/knight_camera_3d.tscn" id="2_jumof"]
 [ext_resource type="Script" uid="uid://ca2hyxkj65g6y" path="res://scenes/light_flicker.gd" id="3_kobp4"]
 [ext_resource type="Script" uid="uid://c020ha5rmf5ul" path="res://scripts/knight_world_environment.gd" id="3_p0w5i"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bh3rf25qtiek8" path="res://blender/shelter room.blend" id="8_xsufa"]
 [ext_resource type="Script" uid="uid://bd2kcildiqtns" path="res://scripts/camera_zone.gd" id="9_xsufa"]
 [ext_resource type="AudioStream" uid="uid://d2oklsvdwn51a" path="res://audio/environment/rainwindow.wav" id="11_w86v4"]
+[ext_resource type="PackedScene" uid="uid://bbuov1vuokcr5" path="res://ui/inspect.tscn" id="12_l3qxk"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0w5i"]
 load_path = "res://.godot/imported/knightsky.png-28073571a94fc0ba66fe8a50b00eb1a1.s3tc.ctex"
@@ -50,20 +50,6 @@ radius = 0.096191406
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w86v4"]
 size = Vector3(13.235311, 5.9472656, 18.087067)
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_6a6wx"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("2_crnqe")
-alpha = 0.485
-metadata/_custom_type_script = "uid://cd6xw0esc5ed6"
-
-[sub_resource type="Compositor" id="Compositor_2bu0n"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_6a6wx")])
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l3qxk"]
 size = Vector3(4.510254, 5.498169, 4.4454346)
@@ -157,7 +143,7 @@ sky_mode = 1
 [node name="Light" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=433592962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4388232, 0.30043182, -3.0584118)
 light_color = Color(1, 0.40749997, 0.20999998, 1)
-light_energy = 1.2569089
+light_energy = 1.2664762
 light_specular = 0.0
 light_bake_mode = 1
 shadow_enabled = true
@@ -185,12 +171,12 @@ camera = NodePath("Camera3D")
 collision_shape = NodePath("CollisionShape3D")
 metadata/_custom_type_script = "uid://bd2kcildiqtns"
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone" unique_id=1933621792]
-transform = Transform3D(0.90408254, -0.13701667, 0.40479776, 0, 0.94721013, 0.32061335, -0.42735794, -0.28986093, 0.85635614, 2.0938268, 2.2754786, 2.1551926)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone" unique_id=243310172]
 transform = Transform3D(0.9994991, 0, 0.031653736, 0, 1, 0, -0.031653736, 0, 0.9994991, -2.0085602, 2.213696, 8.148913)
 shape = SubResource("BoxShape3D_w86v4")
+
+[node name="Camera3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone" unique_id=1231323592 instance=ExtResource("2_jumof")]
+transform = Transform3D(0.90408254, -0.13701668, 0.4047978, 0, 0.9472102, 0.32061338, -0.42735794, -0.28986096, 0.85635614, 2.0938268, 2.2754786, 2.1551926)
 
 [node name="CameraZone2" type="Area3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=806672342 node_paths=PackedStringArray("camera", "collision_shape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3569713, 1.9732904, -6.2668743)
@@ -199,9 +185,8 @@ camera = NodePath("Camera3D")
 collision_shape = NodePath("CollisionShape3D")
 metadata/_custom_type_script = "uid://bd2kcildiqtns"
 
-[node name="Camera3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone2" unique_id=1231323592 instance=ExtResource("2_jumof")]
+[node name="Camera3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone2" unique_id=1047432101 instance=ExtResource("2_jumof")]
 transform = Transform3D(-0.09584122, 0.23659125, 0.9668707, 0, 0.9713422, -0.23768541, -0.9953966, -0.02278006, -0.093094625, 3.2447968, -1.704096, 3.0307174)
-compositor = SubResource("Compositor_2bu0n")
 fov = 56.9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone2" unique_id=536388393]
@@ -217,7 +202,6 @@ metadata/_custom_type_script = "uid://bd2kcildiqtns"
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone3" unique_id=406085424 instance=ExtResource("2_jumof")]
 transform = Transform3D(0.6394362, 0.272395, -0.7189731, 0, 0.935135, 0.35429156, 0.7688442, -0.22654684, 0.59795916, -6.455637, 0.5542462, 4.966607)
-compositor = SubResource("Compositor_2bu0n")
 fov = 56.9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone3" unique_id=1227258933]
@@ -323,6 +307,8 @@ panning_strength = 0.5
 bus = &"Environment"
 attenuation_filter_cutoff_hz = 8913.0
 attenuation_filter_db = -8.0
+
+[node name="Inspect" parent="SubViewportContainer/SubViewport" unique_id=1846294919 instance=ExtResource("12_l3qxk")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=895203268]
 material = SubResource("ShaderMaterial_p0w5i")

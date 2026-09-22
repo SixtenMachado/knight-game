@@ -3,7 +3,8 @@ extends CompositorEffect
 class_name AccumBlurEffect
 
 ## Controls how much of the previous frame's blurred image to blend in. 0 = no blur, 1 = full blur (but full blur is not recommended as it will cause the image to persist indefinitely).
-@export_range(0.0, 1.0, 0.001) var alpha: float = 0.0
+@export_range(0.0, 1.0, 0.001) var alpha: float = 0.1
+@export_range(0.0, 10.0, 0.001) var brightmod: float = 0.1
 
 var rd: RenderingDevice
 var shader: RID
@@ -72,7 +73,7 @@ func _render_callback(_effect_callback_type: int, render_data: RenderData) -> vo
 	var x_groups := ceili(float(size.x) / 8.0)
 	var y_groups := ceili(float(size.y) / 8.0)
 
-	var push_constant := PackedFloat32Array([size.x, size.y, alpha, 0.0])
+	var push_constant := PackedFloat32Array([size.x, size.y, alpha, brightmod, 0.0])
 
 	var view_count := render_scene_buffers.get_view_count()
 	for view in range(view_count):

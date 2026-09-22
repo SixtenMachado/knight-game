@@ -9,6 +9,7 @@ layout(rgba16f, set = 0, binding = 1) uniform image2D prev_frame;
 layout(push_constant, std430) uniform Params {
 	vec2 raster_size;
 	float alpha;     // blend factor: 0 = no trail, 1 = infinite trail
+    float brightmod;
 	float _pad;
 } params;
 
@@ -24,7 +25,7 @@ void main() {
 	vec4 previous = imageLoad(prev_frame, texel);
 
 	// Blend: higher alpha = more trail persistence
-	vec4 blended = mix(current, previous, clamp(params.alpha,0.0,0.9));
+	vec4 blended = mix(current, previous, clamp(params.alpha * ((previous.r + previous.g + previous.b)/3.0 * params.brightmod),0.0,0.9));
 
 	// Write blended result to screen
 	imageStore(color_image, texel, blended);

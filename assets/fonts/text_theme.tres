@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://g1jsgos6yds4"]
+
+[ext_resource type="FontFile" uid="uid://doqsvd2rqiwe" path="res://assets/fonts/texgyrechorus-mediumitalic.otf" id="1_422dd"]
+
+[sub_resource type="FontVariation" id="FontVariation_k5enr"]
+base_font = ExtResource("1_422dd")
+
+[resource]
+default_font = SubResource("FontVariation_k5enr")
+default_font_size = 26
+RichTextLabel/constants/line_separation = -12
