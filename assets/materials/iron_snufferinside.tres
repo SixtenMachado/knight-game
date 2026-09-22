@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c0htwk4jk8ub"]
+
+[ext_resource type="Shader" uid="uid://numdaejqg6s2" path="res://assets/shaders/color_ramp_double_sided.gdshader" id="1_5y04b"]
+[ext_resource type="Texture2D" uid="uid://dqnt7os0befrl" path="res://textures/iron.png" id="2_5y04b"]
+[ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="3_s6o04"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5y04b")
+shader_parameter/input_texture = ExtResource("2_5y04b")
+shader_parameter/black_color = Color(0.084, 0.09059999, 0.12, 1)
+shader_parameter/red_color = Color(0.10831646, 0.15078038, 0.14373082, 1)
+shader_parameter/emission_mult = 1.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_s6o04")

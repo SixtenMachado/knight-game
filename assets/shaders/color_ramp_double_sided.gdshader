@@ -10,6 +10,7 @@ uniform vec3 red_color : source_color;
 uniform float emission_mult = 0.0;
 
 uniform vec2 uv_mult = vec2(10,10);
+uniform vec2 uv_scroll = vec2(0,0);
 
 group_uniforms Squiggle;
 uniform bool squiggle = false;
@@ -52,7 +53,7 @@ void fragment() {
 		}
 	
 	
-	ALBEDO = mix(black_color, red_color, texture(input_texture, squiggle_uv * uv_mult).x);
+	ALBEDO = mix(black_color, red_color, texture(input_texture, squiggle_uv * uv_mult + (uv_scroll * TIME)).x);
 	ALPHA = texture(input_texture, squiggle_uv * uv_mult).a;
 	ALPHA_SCISSOR_THRESHOLD = 0.1;
 	ALPHA_ANTIALIASING_EDGE = 0.8;

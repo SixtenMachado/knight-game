@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://br250up88v16q" path="res://player/player.tscn" id="8_crnqe"]
 [ext_resource type="PackedScene" uid="uid://bh3rf25qtiek8" path="res://blender/shelter room.blend" id="8_xsufa"]
 [ext_resource type="Script" uid="uid://bd2kcildiqtns" path="res://scripts/camera_zone.gd" id="9_xsufa"]
+[ext_resource type="AudioStream" uid="uid://d2oklsvdwn51a" path="res://audio/environment/rainwindow.wav" id="11_w86v4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0w5i"]
 load_path = "res://.godot/imported/knightsky.png-28073571a94fc0ba66fe8a50b00eb1a1.s3tc.ctex"
@@ -47,7 +48,7 @@ volumetric_fog_albedo = Color(0.18000486, 0.18000486, 0.18000486, 1)
 height = 1.262207
 radius = 0.096191406
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kobp4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_w86v4"]
 size = Vector3(13.235311, 5.9472656, 18.087067)
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_6a6wx"]
@@ -64,10 +65,10 @@ metadata/_custom_type_script = "uid://cd6xw0esc5ed6"
 [sub_resource type="Compositor" id="Compositor_2bu0n"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_6a6wx")])
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w86v4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3qxk"]
 size = Vector3(4.510254, 5.498169, 4.4454346)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l3qxk"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4bnm5"]
 size = Vector3(4.510254, 5.1446533, 5.569412)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kobp4"]
@@ -105,6 +106,8 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1678311069]
 handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
@@ -154,7 +157,7 @@ sky_mode = 1
 [node name="Light" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=433592962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4388232, 0.30043182, -3.0584118)
 light_color = Color(1, 0.40749997, 0.20999998, 1)
-light_energy = 1.240698
+light_energy = 1.2569089
 light_specular = 0.0
 light_bake_mode = 1
 shadow_enabled = true
@@ -187,7 +190,7 @@ transform = Transform3D(0.90408254, -0.13701667, 0.40479776, 0, 0.94721013, 0.32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone" unique_id=243310172]
 transform = Transform3D(0.9994991, 0, 0.031653736, 0, 1, 0, -0.031653736, 0, 0.9994991, -2.0085602, 2.213696, 8.148913)
-shape = SubResource("BoxShape3D_kobp4")
+shape = SubResource("BoxShape3D_w86v4")
 
 [node name="CameraZone2" type="Area3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=806672342 node_paths=PackedStringArray("camera", "collision_shape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3569713, 1.9732904, -6.2668743)
@@ -203,7 +206,7 @@ fov = 56.9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone2" unique_id=536388393]
 transform = Transform3D(0.98057663, 0, 0.19613685, 0, 1, 0, -0.19613685, 0, 0.98057663, -0.7711084, -0.5584717, 2.3109355)
-shape = SubResource("BoxShape3D_w86v4")
+shape = SubResource("BoxShape3D_l3qxk")
 
 [node name="CameraZone3" type="Area3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=800867207 node_paths=PackedStringArray("camera", "collision_shape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3461714, 1.9732904, -5.412034)
@@ -219,7 +222,7 @@ fov = 56.9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone3" unique_id=1227258933]
 transform = Transform3D(0.98057663, 0, 0.19613685, 0, 1, 0, -0.19613685, 0, 0.98057663, -1.0834038, -0.7352295, 0.74963045)
-shape = SubResource("BoxShape3D_l3qxk")
+shape = SubResource("BoxShape3D_4bnm5")
 
 [node name="shelter room" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1589192477 instance=ExtResource("8_xsufa")]
 
@@ -302,6 +305,24 @@ shape = SubResource("ConcavePolygonShape3D_kobp4")
 
 [node name="AnimationPlayer" parent="SubViewportContainer/SubViewport/shelter room/shelter room" index="4" unique_id=1895177963]
 autoplay = &"crumble"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1837627254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1178474, 0.56185496, -3.4976034)
+light_color = Color(0.85022974, 0.84277296, 0.7982442, 1)
+light_energy = 3.927
+shadow_enabled = true
+omni_range = 2.089272
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1668412877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.521187, 2.201158, -2.3064048)
+stream = ExtResource("11_w86v4")
+volume_db = -20.0
+unit_size = 4.02
+autoplay = true
+panning_strength = 0.5
+bus = &"Environment"
+attenuation_filter_cutoff_hz = 8913.0
+attenuation_filter_db = -8.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=895203268]
 material = SubResource("ShaderMaterial_p0w5i")

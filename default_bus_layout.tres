@@ -1,0 +1,21 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bf74h4qdi3cbm"]
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+keep_hf_hz = 20500.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
+resource_name = "HardLimiter"
+
+[resource]
+bus/0/volume_db = 0.46499825
+bus/0/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectHardLimiter_j3pel")
+bus/0/effect/1/enabled = true
+bus/1/name = &"Environment"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.46499825
+bus/1/send = &"Master"
