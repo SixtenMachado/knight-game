@@ -21,11 +21,12 @@ func _process(delta: float) -> void:
 	if direction.length() > 0.9:
 		if not acting:
 			if Input.is_action_pressed("snuffer"):
+				$"../knightnew/AnimationPlayer".play("Snuff")
 				acting = true
 				player.disable_movement(0.4, false)
 				look_direction = direction
 				smooth_direction = direction
-				$"../TestPivot".show()
+				#$"../TestPivot".show()
 				print("SWING!")
 				
 		elif player.timer.is_stopped():
@@ -35,6 +36,7 @@ func _process(delta: float) -> void:
 				holding = false
 				acting = false
 				$"../TestPivot".hide()
+				$"../knightnew/AnimationPlayer".play("Idle")
 		
 		if holding:
 			look_direction = direction
@@ -59,3 +61,5 @@ func _process(delta: float) -> void:
 			#look_direction = -player.global_basis.z
 			smooth_direction = -player.global_basis.z
 			$"../TestPivot".hide()
+			
+			$"../knightnew/AnimationPlayer".play("Idle")
