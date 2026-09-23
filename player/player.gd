@@ -8,10 +8,13 @@ class_name Player
 
 var is_disable_movement = false
 var enable_movement_buffer = false
+var is_rotating = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if is_disable_movement: return
+	if is_disable_movement: 
+		is_rotating = false
+		return
 	tank_rotate(delta)
 	strafe_controls(delta)
 	move_and_slide()
@@ -22,7 +25,7 @@ func strafe_controls(delta) -> void:
 	var move_input = Input.get_axis("move_backward","move_forward");
 	var strafe_input = Input.get_axis("strafe_right", "strafe_left");
 	var direction = (transform.basis * Vector3(strafe_input, 0, move_input)).normalized();
-	print(1 + direction.dot(transform.basis.z))
+	
 	if direction != null:
 			velocity.x = direction.x * speed;
 			velocity.z = direction.z * speed;
@@ -33,14 +36,20 @@ func strafe_controls(delta) -> void:
 
 func tank_rotate(delta) -> void:
 	var rotate_input = Input.get_axis("turn_left","turn_right");
-	rotate(Vector3.DOWN, rotate_input * rotate_speed * delta);    
+	rotate(Vector3.DOWN, rotate_input * rotate_speed * delta);
+	is_rotating = absf(rotate_input) > 0  
 
 func tank_controls(delta) -> void:
 	if not is_on_floor():
 		velocity.y = -20;
 	var move_input = Input.get_axis("move_backward","move_forward");
 	var rotate_input = Input.get_axis("turn_left","turn_right");
+	
+	global_basis = global_basis.rotated(Vector3.DOWN, rotate_input * rotate_speed * delta)
 	rotate(Vector3.DOWN, rotate_input * rotate_speed * delta);    
+	is_rotating = absf(rotate_input) > 0
+		
+	
 	var direction = (transform.basis * Vector3(0, 0, move_input)).normalized();
 	if direction != null:
 			velocity.x = direction.x * speed;

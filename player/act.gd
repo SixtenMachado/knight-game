@@ -8,8 +8,8 @@ class_name Act
 
 var acting : bool = false
 var holding : bool = false
-var deadzone : float = 0.2
-var look_direction : Vector3
+var deadzone : float = 0.5
+var look_direction : Vector3 = Vector3.FORWARD
 var smooth_direction : Vector3
 
 func _process(delta: float) -> void:
@@ -42,15 +42,20 @@ func _process(delta: float) -> void:
 			player.enable_movement()
 			look_direction = direction
 		
+	if player.is_rotating:
+		smooth_direction = -player.global_basis.z
+		look_direction = -player.global_basis.z
+	else:
 		smooth_direction = smooth_direction.slerp(look_direction, turn_speed * delta)
-		player.look_at(player.global_position + smooth_direction)
-		$"../TestPivot".look_at(player.global_position + look_direction)
+		player.global_basis = player.global_basis.slerp(Basis.looking_at(smooth_direction), 1)
+	
+	$"../TestPivot".look_at(player.global_position + look_direction)
 	
 	
 	if direction.length() <= deadzone and player.timer.is_stopped():
 			player.enable_movement()
 			acting = false
 			holding = false
-			look_direction = -player.global_basis.z
-			#smooth_direction = -player.global_basis.z
+			#look_direction = -player.global_basis.z
+			smooth_direction = -player.global_basis.z
 			$"../TestPivot".hide()

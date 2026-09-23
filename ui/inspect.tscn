@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbuov1vuokcr5"]
 
 [ext_resource type="Theme" uid="uid://g1jsgos6yds4" path="res://assets/fonts/text_theme.tres" id="1_6gedl"]
+[ext_resource type="Script" uid="uid://cwtv4ky8vvwlf" path="res://ui/inspect_ui.gd" id="1_vn85e"]
 [ext_resource type="Shader" uid="uid://cu6dvynygv600" path="res://assets/fonts/wobbly text.gdshader" id="1_wnway"]
 [ext_resource type="Script" uid="uid://o8vrdxf8ig3e" path="res://ui/fly_rich_text_effect.gd" id="3_6gedl"]
 
@@ -135,6 +136,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../../../TextureRect:offset_transform_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_6gedl"]
 resource_name = "appear"
@@ -235,6 +248,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../../../TextureRect:offset_transform_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.70000005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 200), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vn85e"]
 resource_name = "vanish"
@@ -306,7 +331,7 @@ tracks/5/path = NodePath("../../../../TextureRect:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.4, 3),
+"times": PackedFloat32Array(1.3, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -335,6 +360,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.05, 40.0000019]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../../../TextureRect:offset_transform_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 250)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vn85e"]
 _data = {
@@ -351,6 +388,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vn85e")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1776770377]
 material = SubResource("CanvasItemMaterial_vn85e")
@@ -360,6 +398,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 texture = SubResource("GradientTexture2D_6gedl")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=62100682]
