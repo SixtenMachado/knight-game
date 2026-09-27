@@ -6,9 +6,14 @@ class_name Player
 @export var strafe_relative_speed : float = 0.5;
 @export var timer : Timer
 
+var rotate_input : float
+var strafe_input : float
+var move_input : float
+
 var is_disable_movement = false
 var enable_movement_buffer = false
 var is_rotating = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -22,8 +27,8 @@ func _physics_process(delta: float) -> void:
 func strafe_controls(delta) -> void:
 	if not is_on_floor():
 		velocity.y = -20;
-	var move_input = Input.get_axis("move_backward","move_forward");
-	var strafe_input = Input.get_axis("strafe_right", "strafe_left");
+	move_input = Input.get_axis("move_backward","move_forward");
+	strafe_input = Input.get_axis("strafe_right", "strafe_left");
 	var direction = (transform.basis * Vector3(strafe_input, 0, move_input)).normalized();
 	
 	if direction != null:
@@ -35,28 +40,9 @@ func strafe_controls(delta) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed);
 
 func tank_rotate(delta) -> void:
-	var rotate_input = Input.get_axis("turn_left","turn_right");
+	rotate_input = Input.get_axis("turn_left","turn_right");
 	rotate(Vector3.DOWN, rotate_input * rotate_speed * delta);
 	is_rotating = absf(rotate_input) > 0  
-
-func tank_controls(delta) -> void:
-	if not is_on_floor():
-		velocity.y = -20;
-	var move_input = Input.get_axis("move_backward","move_forward");
-	var rotate_input = Input.get_axis("turn_left","turn_right");
-	
-	global_basis = global_basis.rotated(Vector3.DOWN, rotate_input * rotate_speed * delta)
-	rotate(Vector3.DOWN, rotate_input * rotate_speed * delta);    
-	is_rotating = absf(rotate_input) > 0
-		
-	
-	var direction = (transform.basis * Vector3(0, 0, move_input)).normalized();
-	if direction != null:
-			velocity.x = direction.x * speed;
-			velocity.z = direction.z * speed;
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed);
-		velocity.z = move_toward(velocity.z, 0, speed);
 
 func disable_movement(time : float = 0.2, enable_on_timeout : bool = false):
 	is_disable_movement = true

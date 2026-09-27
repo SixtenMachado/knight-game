@@ -9,8 +9,13 @@ class_name Act
 var acting : bool = false
 var holding : bool = false
 var deadzone : float = 0.5
-var look_direction : Vector3 = Vector3.FORWARD
+var look_direction : Vector3
 var smooth_direction : Vector3
+
+
+
+func _ready() -> void:
+	look_direction = -player.global_basis.z
 
 func _process(delta: float) -> void:
 	var direction : Vector3
@@ -21,7 +26,6 @@ func _process(delta: float) -> void:
 	if direction.length() > 0.9:
 		if not acting:
 			if Input.is_action_pressed("snuffer"):
-				$"../knightnew/AnimationPlayer".play("Snuff")
 				acting = true
 				player.disable_movement(0.4, false)
 				look_direction = direction
@@ -36,7 +40,6 @@ func _process(delta: float) -> void:
 				holding = false
 				acting = false
 				$"../TestPivot".hide()
-				$"../knightnew/AnimationPlayer".play("Idle")
 		
 		if holding:
 			look_direction = direction
@@ -61,5 +64,3 @@ func _process(delta: float) -> void:
 			#look_direction = -player.global_basis.z
 			smooth_direction = -player.global_basis.z
 			$"../TestPivot".hide()
-			
-			$"../knightnew/AnimationPlayer".play("Idle")

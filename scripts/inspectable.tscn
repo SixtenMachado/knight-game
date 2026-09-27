@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cclix61b6j38m"]
+
+[ext_resource type="Script" uid="uid://cl5mvlq74jl2o" path="res://inspectable.gd" id="1_t276s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpa8f"]
+
+[node name="Inspectable" type="Area3D" unique_id=125666075]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_t276s")
+text_se = "Something balatro balatro balatro
+yes yes balahahah wee wee"
+text_en = "wait thats english fuck SHIT asdgasffaff"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1416735028]
+shape = SubResource("BoxShape3D_rpa8f")
