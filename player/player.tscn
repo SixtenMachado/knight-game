@@ -34,7 +34,7 @@ rings = 0
 cap_bottom = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fmjx"]
-size = Vector3(0.35302734, 1.5001221, 0.70495605)
+size = Vector3(0.15820313, 1.5001221, 0.5848999)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yllr7"]
 animation = &"Walk_B"
@@ -122,7 +122,8 @@ graph_offset = Vector2(0, 12.092076)
 [node name="Player" type="CharacterBody3D" unique_id=1601156460 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_oul6g")
 speed = 1.6
-rotate_speed = 3.0
+rotate_speed = 2.0
+strafe_relative_speed = 0.4
 timer = NodePath("MovementDisableTimer")
 metadata/_custom_type_script = "uid://bcwxatkn73bid"
 
@@ -154,7 +155,7 @@ collision_mask = 2
 script = ExtResource("4_wodsf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InspectableLooker" unique_id=754049215]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877, 0.47711527)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877, 0.53714335)
 shape = SubResource("BoxShape3D_5fmjx")
 
 [node name="knightnew" parent="." unique_id=1707190227 instance=ExtResource("4_yllr7")]

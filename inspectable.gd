@@ -1,3 +1,4 @@
+@icon("res://tools/icons/inspect.png")
 extends Area3D
 class_name Inspectable
 

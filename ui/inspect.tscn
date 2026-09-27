@@ -380,7 +380,7 @@ _data = {
 &"vanish": SubResource("Animation_vn85e")
 }
 
-[node name="Inspect" type="Control" unique_id=1669182713 node_paths=PackedStringArray("se", "en")]
+[node name="Inspect" type="Control" unique_id=1669182713]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -389,8 +389,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vn85e")
-se = NodePath("MarginContainer/VBoxContainer/MarginContainer/Se")
-en = NodePath("MarginContainer/VBoxContainer/MarginContainer2/En")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1776770377]
 material = SubResource("CanvasItemMaterial_vn85e")
@@ -453,3 +451,5 @@ custom_effects = [SubResource("RichTextEffect_m7kbu")]
 root_node = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/En")
 libraries/ = SubResource("AnimationLibrary_vn85e")
 autoplay = &"RESET"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1108202480]
