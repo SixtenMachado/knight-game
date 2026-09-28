@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyu0u71vlstrq"]
 
 [ext_resource type="Script" uid="uid://cuxady6g7wl4r" path="res://tools/auto_shader_application.gd" id="1_sg3ht"]
-[ext_resource type="PackedScene" uid="uid://b5e5wg0q5737m" path="res://scenes/knight_camera_3d.tscn" id="2_jumof"]
+[ext_resource type="PackedScene" uid="uid://b5e5wg0q5737m" path="res://scripts/knight_camera_3d.tscn" id="2_jumof"]
 [ext_resource type="Script" uid="uid://ca2hyxkj65g6y" path="res://scenes/light_flicker.gd" id="3_kobp4"]
 [ext_resource type="Script" uid="uid://c020ha5rmf5ul" path="res://scripts/knight_world_environment.gd" id="3_p0w5i"]
 [ext_resource type="Material" uid="uid://cnibhjpu84brr" path="res://assets/materials/rock.tres" id="4_xsufa"]
@@ -144,7 +144,7 @@ sky_mode = 1
 [node name="Light" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=433592962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4388232, 0.30043182, -3.0584118)
 light_color = Color(1, 0.40749997, 0.20999998, 1)
-light_energy = 1.2328779
+light_energy = 1.2257404
 light_specular = 0.0
 light_bake_mode = 1
 shadow_enabled = true

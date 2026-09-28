@@ -1,6 +1,6 @@
 @tool extends Area3D
 class_name CameraZone
-@export var camera : Camera3D;
+@export var camera : KnightCamera;
 @export var collision_shape : CollisionShape3D;
 
 signal player_entered_area;
@@ -10,11 +10,13 @@ func player_entered_check(body) -> void:
 	if body is not Player:
 		return;
 	camera.make_current();
+	camera.leon.show()
 	player_entered_area.emit();
 func player_exited_check(body) -> void:
 	if body is not Player:
 		return;
 	player_exited_area.emit();
+	camera.leon.hide()
 	
 func _ready() -> void:
 	body_entered.connect(player_entered_check);
