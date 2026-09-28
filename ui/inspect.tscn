@@ -20,8 +20,11 @@ fill_to = Vector2(0.055555556, 0.517094)
 shader = ExtResource("1_wnway")
 shader_parameter/italic = 0.25
 shader_parameter/warp_frequency = 15.0
+shader_parameter/warp_frequency_mult = 1.0
 shader_parameter/warp_amplitude = 0.5
+shader_parameter/warp_amplitude_mult = 1.0
 shader_parameter/horizontal_warp_amplitude = 0.05
+shader_parameter/warp_horizontal_mult = 1.0
 shader_parameter/warp_speed = 1.0
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vn85e"]
@@ -31,8 +34,11 @@ script = ExtResource("3_6gedl")
 shader = ExtResource("1_wnway")
 shader_parameter/italic = 0.25
 shader_parameter/warp_frequency = 15.0
+shader_parameter/warp_frequency_mult = 1.0
 shader_parameter/warp_amplitude = 0.5
+shader_parameter/warp_amplitude_mult = 1.0
 shader_parameter/horizontal_warp_amplitude = 0.05
+shader_parameter/warp_horizontal_mult = 1.0
 shader_parameter/warp_speed = 1.0
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_m7kbu"]

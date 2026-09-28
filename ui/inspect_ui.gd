@@ -7,8 +7,20 @@ class_name InspectUI
 func _ready() -> void:
 	UiManager.inspect_ui = self
 
-func appear():
-	$AnimationPlayer.play("appear")
+func appear(speed : float = 1, warp_frequency : float = 1, warp_amplitude : float = 1, warp_speed : float = 1, warp_horizontal : float = 1):
+	se.material.set("shader_parameter/warp_frequency_mult", warp_frequency)
+	en.material.set("shader_parameter/warp_frequency_mult", warp_frequency)
+	
+	se.material.set("shader_parameter/warp_amplitude_mult", warp_amplitude)
+	en.material.set("shader_parameter/warp_amplitude_mult", warp_amplitude)
+	
+	se.material.set("shader_parameter/warp_speed", warp_speed)
+	en.material.set("shader_parameter/warp_speed", warp_speed)
+	
+	se.material.set("shader_parameter/warp_horizontal_mult", warp_horizontal)
+	en.material.set("shader_parameter/warp_horizontal_mult", warp_horizontal)
+	
+	$AnimationPlayer.play("appear", -1, speed)
 
 func vanish():
 	$AnimationPlayer.play("vanish")

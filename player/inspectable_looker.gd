@@ -14,9 +14,7 @@ func _input(event: InputEvent) -> void:
 					var area_distance = area.global_position.distance_to(global_position)
 					if area_distance < distance:
 						inspectable = area
-			UiManager.inspect_ui.se.text = inspectable.text_se
-			UiManager.inspect_ui.en.text = inspectable.text_en
-			UiManager.inspect_ui.appear()
+			inspectable.inspected()
 
 func _on_area_entered(area: Area3D) -> void:
 	return

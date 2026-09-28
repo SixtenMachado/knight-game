@@ -144,7 +144,7 @@ sky_mode = 1
 [node name="Light" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=433592962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4388232, 0.30043182, -3.0584118)
 light_color = Color(1, 0.40749997, 0.20999998, 1)
-light_energy = 1.2257404
+light_energy = 1.3086773
 light_specular = 0.0
 light_bake_mode = 1
 shadow_enabled = true
@@ -316,8 +316,8 @@ text_en = "Faintly glowing embers of something that burned for a long, long time
 
 [node name="Bones" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1583439376 instance=ExtResource("11_l3qxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40866253, 0.37919426, -3.917239)
-text_se = "Trötta ben, liggandes stadiga på havets botten."
-text_en = "Tired bones, laying steadily on the bottom of the sea."
+text_se = "\"Hu, vad det stormar därute... Bäst att ligga kvar här. Än glöder det.\""
+text_en = "\"Oh, what a storm out there... Best stay here. The embers haven't yet faded.\""
 
 [node name="Moon" parent="SubViewportContainer/SubViewport/shelter room" unique_id=342933731 instance=ExtResource("11_l3qxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47072, 0.9497961, -3.1126866)

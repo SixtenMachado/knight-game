@@ -42,7 +42,7 @@ metadata/_custom_type_script = "uid://cuxady6g7wl4r"
 transform = Transform3D(-0.25, 0, 3.774895e-08, 0, 0.25, 0, -3.774895e-08, 0, -0.25, -6.349709e-09, 0, 0.07263221)
 visible = false
 
-[node name="Skeleton3D" parent="french leon/metarig" parent_id_path=PackedInt32Array(1316615532, 940169071) index="0" unique_id=1215936031]
+[node name="Skeleton3D" parent="french leon/metarig" parent_id_path=PackedInt32Array(1316615532, 297252725) index="0" unique_id=2024654329]
 bones/0/position = Vector3(-0.049474973, -0.37802482, -0.33298814)
 bones/0/rotation = Quaternion(0.11692994, 0.013151702, 0.11099399, 0.9868307)
 bones/3/rotation = Quaternion(0.11387479, 0.12978855, -0.12165895, 0.9774388)
@@ -65,7 +65,7 @@ bones/20/rotation = Quaternion(0.57277507, 0.069009006, -0.015807882, 0.8166497)
 bones/21/rotation = Quaternion(0.7755883, -0.12750511, 0.18146043, 0.5909971)
 bones/22/rotation = Quaternion(-0.54362625, -0.0031409557, -0.0023546768, 0.83931816)
 
-[node name="Cube" parent="french leon/metarig/Skeleton3D" index="0" unique_id=52921608]
+[node name="Cube" parent="french leon/metarig/Skeleton3D" index="0" unique_id=1394963068]
 surface_material_override/0 = ExtResource("4_dbqd1")
 surface_material_override/1 = ExtResource("5_wd8nl")
 surface_material_override/2 = ExtResource("6_2xux8")
@@ -76,7 +76,7 @@ surface_material_override/6 = ExtResource("10_v6fwf")
 surface_material_override/7 = ExtResource("11_ssfqy")
 surface_material_override/8 = ExtResource("12_pv4e8")
 
-[node name="AnimationPlayer" parent="french leon" index="1" unique_id=223619107]
+[node name="AnimationPlayer" parent="french leon" index="1" unique_id=489316004]
 autoplay = &"metarigAction"
 
 [editable path="french leon"]
