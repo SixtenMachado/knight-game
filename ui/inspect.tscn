@@ -3,7 +3,11 @@
 [ext_resource type="Theme" uid="uid://g1jsgos6yds4" path="res://assets/fonts/text_theme.tres" id="1_6gedl"]
 [ext_resource type="Script" uid="uid://cwtv4ky8vvwlf" path="res://ui/inspect_ui.gd" id="1_vn85e"]
 [ext_resource type="Shader" uid="uid://cu6dvynygv600" path="res://assets/fonts/wobbly text.gdshader" id="1_wnway"]
+[ext_resource type="Shader" uid="uid://xigl08yfcnwv" path="res://ui/inspect_bg.tres" id="2_3pvwf"]
+[ext_resource type="Texture2D" uid="uid://4ktv8vxx3gfl" path="res://textures/eye2.png" id="3_3pvwf"]
 [ext_resource type="Script" uid="uid://o8vrdxf8ig3e" path="res://ui/fly_rich_text_effect.gd" id="3_6gedl"]
+[ext_resource type="AudioStream" uid="uid://b554p1i2d5g2h" path="res://audio/ui/apparition.wav" id="7_4vnak"]
+[ext_resource type="AudioStream" uid="uid://c1expc1ebrmyr" path="res://audio/ui/disapparition.wav" id="8_hq8fk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vn85e"]
 blend_mode = 3
@@ -15,6 +19,9 @@ colors = PackedColorArray(0.038397167, 0.038397167, 0.03839716, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_wnway")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.055555556, 0.517094)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vnak"]
+shader = ExtResource("2_3pvwf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnway"]
 shader = ExtResource("1_wnway")
@@ -97,7 +104,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../../../../TextureRect:modulate")
+tracks/4/path = NodePath("../../../../Gradient:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -145,7 +152,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../../../TextureRect:offset_transform_position")
+tracks/8/path = NodePath("../../../../Gradient:offset_transform_position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -153,6 +160,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../../../Pattern:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_6gedl"]
@@ -221,7 +240,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../../../TextureRect:modulate")
+tracks/5/path = NodePath("../../../../Gradient:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -257,7 +276,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../../../TextureRect:offset_transform_position")
+tracks/8/path = NodePath("../../../../Gradient:offset_transform_position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -265,6 +284,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 200), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../../../Pattern:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vn85e"]
@@ -333,11 +364,11 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../../../TextureRect:modulate")
+tracks/5/path = NodePath("../../../../Gradient:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1.3, 3),
+"times": PackedFloat32Array(1.3000001, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -369,7 +400,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../../../TextureRect:offset_transform_position")
+tracks/8/path = NodePath("../../../../Gradient:offset_transform_position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -377,6 +408,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 250)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../../../Pattern:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vn85e"]
@@ -398,7 +441,7 @@ script = ExtResource("1_vn85e")
 se = NodePath("MarginContainer/VBoxContainer/MarginContainer/Se")
 en = NodePath("MarginContainer/VBoxContainer/MarginContainer2/En")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1776770377]
+[node name="Gradient" type="TextureRect" parent="." unique_id=1776770377]
 material = SubResource("CanvasItemMaterial_vn85e")
 layout_mode = 1
 anchors_preset = 15
@@ -408,6 +451,21 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 texture = SubResource("GradientTexture2D_6gedl")
+
+[node name="Pattern" type="TextureRect" parent="." unique_id=1020880152]
+self_modulate = Color(0.78, 0.78, 0.78, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_4vnak")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("3_3pvwf")
+stretch_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=62100682]
 layout_mode = 1
@@ -460,4 +518,11 @@ root_node = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/En")
 libraries/ = SubResource("AnimationLibrary_vn85e")
 autoplay = &"RESET"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1108202480]
+[node name="AppearSound" type="AudioStreamPlayer" parent="." unique_id=1108202480]
+stream = ExtResource("7_4vnak")
+volume_db = -14.095
+pitch_scale = 0.87
+
+[node name="DisappearSound" type="AudioStreamPlayer" parent="." unique_id=895603548]
+stream = ExtResource("8_hq8fk")
+volume_db = -16.134

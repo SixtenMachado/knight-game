@@ -1,5 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dcd76laqjerp3"]
 
+[ext_resource type="Texture2D" uid="uid://j1nfxfgyl886" path="res://textures/hair.png" id="1_6m0wp"]
 [ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="2_vjcmu"]
 
 [sub_resource type="Shader" id="Shader_js8f1"]
@@ -69,13 +70,10 @@ void fragment() {
 }
 "
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dius7"]
-load_path = "res://.godot/imported/hair.png-bb1477a350fb8d0bf23fe64a5e56fad7.s3tc.ctex"
-
 [resource]
 render_priority = 0
 shader = SubResource("Shader_js8f1")
-shader_parameter/input_texture = SubResource("CompressedTexture2D_dius7")
+shader_parameter/input_texture = ExtResource("1_6m0wp")
 shader_parameter/black_color = Color(0.8107126, 0.7518237, 0.5825545, 1)
 shader_parameter/red_color = Color(0.9780808, 0.9285385, 0.8434875, 1)
 shader_parameter/emission_mult = 0.0
