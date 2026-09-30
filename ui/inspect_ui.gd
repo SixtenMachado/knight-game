@@ -24,11 +24,9 @@ func appear(speed : float = 1, warp_frequency : float = 1, warp_amplitude : floa
 		$Pattern.texture = texture_override
 	
 	$AnimationPlayer.play("appear", -1, speed)
-	$AppearSound.play()
 	
 func vanish():
 	$AnimationPlayer.play("vanish")
-	$DisappearSound.play()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("hobbit"):

@@ -145,7 +145,7 @@ sky_mode = 1
 [node name="Light" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=433592962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4388232, 0.30043182, -3.0584118)
 light_color = Color(1, 0.40749997, 0.20999998, 1)
-light_energy = 1.2583836
+light_energy = 1.1878576
 light_specular = 0.0
 light_bake_mode = 1
 shadow_enabled = true
@@ -212,7 +212,10 @@ shape = SubResource("BoxShape3D_fqsy6")
 
 [node name="shelter room" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1589192477 instance=ExtResource("8_xsufa")]
 
-[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/shelter room/shelter room/Armature" parent_id_path=PackedInt32Array(1589192477, 1034390932) index="0" unique_id=998536167]
+[node name="Armature" parent="SubViewportContainer/SubViewport/shelter room/shelter room" index="0" unique_id=1034390932]
+transform = Transform3D(0.33, 0, 0, 0, -1.4424758e-08, -0.33, 0, 0.33, -1.4424758e-08, -0.285, -0.9955584, -3.849)
+
+[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/shelter room/shelter room/Armature" index="0" unique_id=998536167]
 bones/0/position = Vector3(-0.39067262, 0, -2.976426)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/1/position = Vector3(0.05808257, -2.435565, -0.49826026)
@@ -276,6 +279,7 @@ bones/19/scale = Vector3(0.9999998, 0.99999976, 0.9999999)
 surface_material_override/0 = ExtResource("4_xsufa")
 
 [node name="Bench" parent="SubViewportContainer/SubViewport/shelter room/shelter room" index="1" unique_id=1079640992]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.52612305, -0.04366457, -4.16129)
 surface_material_override/0 = ExtResource("4_xsufa")
 
 [node name="Cinders" parent="SubViewportContainer/SubViewport/shelter room/shelter room" index="2" unique_id=108825867]
@@ -336,7 +340,7 @@ attenuation_filter_db = -5.0
 [node name="Embers" parent="SubViewportContainer/SubViewport/shelter room" unique_id=125666075 instance=ExtResource("11_l3qxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466592, 0.2007359, -3.011235)
 text_se = "De sista glödande spillrorna av något som brunnit länge, länge."
-text_en = "Faintly glowing embers of something that burned for a long, long time."
+text_en = "Faintly glowing embers of something that had long burned."
 
 [node name="Bones" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1583439376 instance=ExtResource("11_l3qxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40866253, 0.37919426, -3.917239)
