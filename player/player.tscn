@@ -20,19 +20,6 @@
 radius = 0.27734375
 height = 1.7641602
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebec5"]
-emission_enabled = true
-emission = Color(0.68633336, 0, 0.71, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_5fmjx"]
-material = SubResource("StandardMaterial3D_ebec5")
-top_radius = 0.1
-bottom_radius = 0.0
-height = 0.4
-radial_segments = 5
-rings = 0
-cap_bottom = false
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fmjx"]
 size = Vector3(0.15820313, 1.5001221, 0.5848999)
 
@@ -142,12 +129,6 @@ shape = SubResource("CapsuleShape3D_rpa8f")
 script = ExtResource("12_ebec5")
 turn_speed = 5.0
 player = NodePath("..")
-
-[node name="TestPivot" type="Node3D" parent="." unique_id=253901589]
-
-[node name="TestMesh" type="MeshInstance3D" parent="TestPivot" unique_id=160360059]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.3708783, 0.72581553)
-mesh = SubResource("CylinderMesh_5fmjx")
 
 [node name="InspectableLooker" type="Area3D" parent="." unique_id=322177714]
 collision_layer = 0

@@ -13,7 +13,6 @@ var look_direction : Vector3
 var smooth_direction : Vector3
 
 
-
 func _ready() -> void:
 	look_direction = -player.global_basis.z
 
@@ -23,6 +22,10 @@ func _process(delta: float) -> void:
 	direction = cam.global_basis.x.cross(Vector3.UP) * Input.get_axis("act_backward","act_forward")
 	direction += cam.global_basis.x * Input.get_axis("act_right", "act_left")
 	
+	#Numpad diagonals
+	direction += (cam.global_basis.x - cam.global_basis.x.cross(Vector3.UP)).normalized() * Input.get_axis("diagonal_fr", "diagonal_bl")
+	direction += (cam.global_basis.x + cam.global_basis.x.cross(Vector3.UP)).normalized() * Input.get_axis("diagonal_br", "diagonal_fl")
+	
 	if direction.length() > 0.9:
 		if not acting:
 			if Input.is_action_pressed("snuffer"):
@@ -30,8 +33,6 @@ func _process(delta: float) -> void:
 				player.disable_movement(0.4, false)
 				look_direction = direction
 				smooth_direction = direction
-				#$"../TestPivot".show()
-				print("SWING!")
 				
 		elif player.timer.is_stopped():
 			if Input.is_action_pressed("snuffer"):
@@ -54,13 +55,9 @@ func _process(delta: float) -> void:
 		smooth_direction = smooth_direction.slerp(look_direction, turn_speed * delta)
 		player.global_basis = player.global_basis.slerp(Basis.looking_at(smooth_direction), 1)
 	
-	$"../TestPivot".look_at(player.global_position + look_direction)
-	
-	
 	if direction.length() <= deadzone and player.timer.is_stopped():
 			player.enable_movement()
 			acting = false
 			holding = false
 			#look_direction = -player.global_basis.z
 			smooth_direction = -player.global_basis.z
-			$"../TestPivot".hide()
