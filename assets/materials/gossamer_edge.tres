@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://kt0mu8kevcbv"]
+
+[ext_resource type="Texture2D" uid="uid://cg33554xawul1" path="res://textures/gossamer.png" id="1_titom"]
+[ext_resource type="Shader" uid="uid://numdaejqg6s2" path="res://assets/shaders/color_ramp_double_sided.gdshader" id="1_y67as"]
+[ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="2_y67as"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_y67as")
+shader_parameter/input_texture = ExtResource("1_titom")
+shader_parameter/black_color = Color(0, 0, 0, 1)
+shader_parameter/red_color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("2_y67as")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c5l6g7cnkc3r2"]
+
+[ext_resource type="Script" uid="uid://cuxady6g7wl4r" path="res://tools/auto_shader_application.gd" id="1_heq6e"]
+[ext_resource type="PackedScene" uid="uid://dmeh3rkefoxf8" path="res://blender/moth.blend" id="2_xmv3l"]
+[ext_resource type="Material" uid="uid://cqlo3ii1o8257" path="res://assets/materials/fur_moth.tres" id="3_usx7b"]
+[ext_resource type="Material" uid="uid://bxrewyu4ukxyg" path="res://assets/materials/gossamer_eye.tres" id="4_bvb8p"]
+[ext_resource type="Material" uid="uid://jxvg2qde2mih" path="res://assets/materials/gossamer_white.tres" id="5_3kvrk"]
+[ext_resource type="Material" uid="uid://kt0mu8kevcbv" path="res://assets/materials/gossamer_edge.tres" id="6_macsx"]
+[ext_resource type="Material" uid="uid://dnwlmfv5hykrw" path="res://assets/materials/gossamer_outer.tres" id="7_1bh7b"]
+[ext_resource type="Material" uid="uid://d35k53yapxv1s" path="res://assets/materials/chitin_black.tres" id="8_ivugo"]
+[ext_resource type="Material" uid="uid://dfbpjvx4uqb06" path="res://assets/materials/bug_mothbody.tres" id="9_2l1cw"]
+[ext_resource type="Material" uid="uid://bvdykjey241ni" path="res://assets/materials/mud_bugeye.tres" id="10_x5ply"]
+[ext_resource type="Material" uid="uid://bg75pcxor3g5j" path="res://assets/materials/leaf_antenna.tres" id="11_k2atm"]
+
+[node name="Moth" type="Node3D" unique_id=4193604]
+
+[node name="AutoShaderApplication" type="Node" parent="." unique_id=331114577]
+script = ExtResource("1_heq6e")
+metadata/_custom_type_script = "uid://cuxady6g7wl4r"
+
+[node name="moth2" parent="." unique_id=2084707247 instance=ExtResource("2_xmv3l")]
+
+[node name="Empty" parent="moth2" index="0" unique_id=1599901984]
+visible = false
+
+[node name="Empty_001" parent="moth2" index="1" unique_id=2056763049]
+visible = false
+
+[node name="moth" parent="moth2" index="2" unique_id=355345260]
+surface_material_override/0 = ExtResource("3_usx7b")
+surface_material_override/1 = ExtResource("4_bvb8p")
+surface_material_override/2 = ExtResource("5_3kvrk")
+surface_material_override/3 = ExtResource("6_macsx")
+surface_material_override/4 = ExtResource("7_1bh7b")
+surface_material_override/5 = ExtResource("8_ivugo")
+surface_material_override/6 = ExtResource("9_2l1cw")
+surface_material_override/7 = ExtResource("10_x5ply")
+surface_material_override/8 = ExtResource("11_k2atm")
+
+[editable path="moth2"]

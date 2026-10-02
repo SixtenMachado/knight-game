@@ -11,10 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://br250up88v16q" path="res://player/player.tscn" id="8_crnqe"]
 [ext_resource type="PackedScene" uid="uid://bh3rf25qtiek8" path="res://blender/shelter room.blend" id="8_xsufa"]
 [ext_resource type="Script" uid="uid://bd2kcildiqtns" path="res://scripts/camera_zone.gd" id="9_xsufa"]
+[ext_resource type="PackedScene" uid="uid://bd1a8q0jq1c33" path="res://blender/ape_orangutan.blend" id="10_jcauo"]
 [ext_resource type="AudioStream" uid="uid://ctuhcc25ismxr" path="res://audio/environment/burning match loop.wav" id="11_4bnm5"]
+[ext_resource type="Material" uid="uid://dcd76laqjerp3" path="res://assets/materials/hair_blond.tres" id="11_4ixbf"]
 [ext_resource type="PackedScene" uid="uid://cclix61b6j38m" path="res://scripts/inspectable.tscn" id="11_l3qxk"]
 [ext_resource type="AudioStream" uid="uid://d2oklsvdwn51a" path="res://audio/environment/rainwindow.wav" id="11_w86v4"]
 [ext_resource type="PackedScene" uid="uid://bbuov1vuokcr5" path="res://ui/inspect.tscn" id="12_l3qxk"]
+[ext_resource type="Material" uid="uid://c14ugnm77pao2" path="res://assets/materials/heather.tres" id="12_ltkbo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0w5i"]
 load_path = "res://.godot/imported/knightsky.png-28073571a94fc0ba66fe8a50b00eb1a1.s3tc.ctex"
@@ -50,13 +53,13 @@ volumetric_fog_albedo = Color(0.18000486, 0.18000486, 0.18000486, 1)
 height = 1.262207
 radius = 0.096191406
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4bnm5"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjeai"]
 size = Vector3(13.235311, 5.9472656, 18.087067)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jcauo"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhqmy"]
 size = Vector3(4.510254, 5.498169, 4.4454346)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fqsy6"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_48p6b"]
 size = Vector3(4.510254, 5.1446533, 5.569412)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kobp4"]
@@ -145,7 +148,7 @@ sky_mode = 1
 [node name="Light" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=433592962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4388232, 0.30043182, -3.0584118)
 light_color = Color(1, 0.40749997, 0.20999998, 1)
-light_energy = 1.1878576
+light_energy = 1.3047429
 light_specular = 0.0
 light_bake_mode = 1
 shadow_enabled = true
@@ -175,7 +178,7 @@ metadata/_custom_type_script = "uid://bd2kcildiqtns"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone" unique_id=243310172]
 transform = Transform3D(0.9994991, 0, 0.031653736, 0, 1, 0, -0.031653736, 0, 0.9994991, -2.0085602, 2.213696, 8.148913)
-shape = SubResource("BoxShape3D_4bnm5")
+shape = SubResource("BoxShape3D_pjeai")
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone" unique_id=1231323592 instance=ExtResource("2_jumof")]
 transform = Transform3D(0.90408254, -0.13701668, 0.4047978, 0, 0.9472102, 0.32061338, -0.42735794, -0.28986096, 0.85635614, 2.0938268, 2.2754786, 2.1551926)
@@ -193,7 +196,7 @@ fov = 56.9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone2" unique_id=536388393]
 transform = Transform3D(0.98057663, 0, 0.19613685, 0, 1, 0, -0.19613685, 0, 0.98057663, -0.7711084, -0.5584717, 2.3109355)
-shape = SubResource("BoxShape3D_jcauo")
+shape = SubResource("BoxShape3D_vhqmy")
 
 [node name="CameraZone3" type="Area3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=800867207 node_paths=PackedStringArray("camera", "collision_shape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3461714, 1.9732904, -5.412034)
@@ -208,7 +211,7 @@ fov = 56.9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/shelter room/CameraZone3" unique_id=1227258933]
 transform = Transform3D(0.98057663, 0, 0.19613685, 0, 1, 0, -0.19613685, 0, 0.98057663, -1.0834038, -0.7352295, 0.74963045)
-shape = SubResource("BoxShape3D_fqsy6")
+shape = SubResource("BoxShape3D_48p6b")
 
 [node name="shelter room" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1589192477 instance=ExtResource("8_xsufa")]
 
@@ -296,6 +299,16 @@ shape = SubResource("ConcavePolygonShape3D_kobp4")
 [node name="AnimationPlayer" parent="SubViewportContainer/SubViewport/shelter room/shelter room" index="4" unique_id=1895177963]
 autoplay = &"crumble"
 
+[node name="ape_orangutan" parent="SubViewportContainer/SubViewport/shelter room/shelter room" unique_id=1133178092 instance=ExtResource("10_jcauo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9120553, 0, 4.8732104)
+
+[node name="Orangutan" parent="SubViewportContainer/SubViewport/shelter room/shelter room/ape_orangutan/Armature_Orang/Skeleton3D" parent_id_path=PackedInt32Array(1133178092, 2045713108) index="0" unique_id=1800362994]
+visible = false
+
+[node name="Orangutan_flanged" parent="SubViewportContainer/SubViewport/shelter room/shelter room/ape_orangutan/Armature_Orang/Skeleton3D" parent_id_path=PackedInt32Array(1133178092, 2045713108) index="1" unique_id=561813638]
+surface_material_override/0 = ExtResource("11_4ixbf")
+surface_material_override/1 = ExtResource("12_ltkbo")
+
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1837627254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1178474, 0.56185496, -3.4976034)
 light_color = Color(0.85022974, 0.84277296, 0.7982442, 1)
@@ -371,3 +384,4 @@ grow_vertical = 2
 texture = SubResource("ViewportTexture_p0w5i")
 
 [editable path="SubViewportContainer/SubViewport/shelter room/shelter room"]
+[editable path="SubViewportContainer/SubViewport/shelter room/shelter room/ape_orangutan"]

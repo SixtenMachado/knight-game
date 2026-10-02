@@ -40,7 +40,6 @@ func _process(delta: float) -> void:
 			else:
 				holding = false
 				acting = false
-				$"../TestPivot".hide()
 		
 		if holding:
 			look_direction = direction
