@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://bf74h4qdi3cbm"
 [autoload]
 
 UiManager="*uid://bby2eynmo4ahw"
+AudioManager="*uid://2ro80jpbj24g"
 
 [display]
 
@@ -134,7 +135,12 @@ diagonal_br={
 
 [layer_names]
 
+3d_physics/layer_1="SOLID"
 3d_physics/layer_2="INSPECTABLE"
+3d_physics/layer_3="PLAYER"
+3d_physics/layer_4="CREATURE"
+3d_physics/layer_5="INVISIBLE WALL"
+3d_physics/layer_6="SNUFFER"
 
 [physics]
 

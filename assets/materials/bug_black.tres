@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dor04n6mfxxpd"]
+
+[ext_resource type="Texture2D" uid="uid://b0ohgwf0qfpmm" path="res://textures/bug.png" id="1_2wn4i"]
+[ext_resource type="Shader" uid="uid://bs2s0o1pjc75a" path="res://assets/shaders/universal_shader_opaque.gdshader" id="1_vmm53"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vmm53")
+shader_parameter/input_texture = ExtResource("1_2wn4i")
+shader_parameter/black_color = Color(0, 0, 0, 1)
+shader_parameter/red_color = Color(0.3254902, 0.3254902, 0.3254902, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0

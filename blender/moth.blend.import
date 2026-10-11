@@ -39,7 +39,28 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Empty": {
+"import/skip_import": true
+},
+"PATH:Empty_001": {
+"import/skip_import": true
+},
+"PATH:Empty_002": {
+"import/skip_import": true
+},
+"PATH:Point": {
+"import/skip_import": true
+},
+"PATH:Sun": {
+"import/skip_import": true
+},
+"PATH:wings1": {
+"import/skip_import": true
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

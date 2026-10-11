@@ -1,16 +1,9 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bg75pcxor3g5j"]
-
-[ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="2_ev5f7"]
-
-[sub_resource type="Shader" id="Shader_js8f1"]
-code = "shader_type spatial;
-
 render_mode vertex_lighting, cull_disabled, specular_disabled;
 
 uniform sampler2D input_texture : filter_nearest;
 
-uniform vec3 black_color : source_color;
-uniform vec3 red_color : source_color;
+uniform vec4 black_color : source_color;
+uniform vec4 red_color : source_color;
 
 uniform float emission_mult = 0.0;
 
@@ -57,28 +50,11 @@ void fragment() {
 		squiggle_uv = SCREEN_UV + direction * strength * 0.005;
 		}
 	
+	vec4 adjusted_texture = mix(black_color, red_color, texture(input_texture, squiggle_uv * uv_mult + (uv_scroll * TIME)).x);
 	
-	ALBEDO = mix(black_color, red_color, texture(input_texture, squiggle_uv * uv_mult + (uv_scroll * TIME)).x);
-	ALPHA = texture(input_texture, squiggle_uv * uv_mult).a;
-	ALPHA_SCISSOR_THRESHOLD = 0.1;
-	ALPHA_ANTIALIASING_EDGE = 0.8;
+	ALBEDO = adjusted_texture.rgb;
+	
 	//Use this if squiggle sucks
 	//ALBEDO = mix(black_color, red_color, texture(input_texture, UV * uv_mult).x);
 	ANISOTROPY = 0.0;
 	EMISSION = ALBEDO * emission_mult;
-}
-"
-
-[resource]
-render_priority = 0
-shader = SubResource("Shader_js8f1")
-shader_parameter/black_color = Color(0, 0, 0, 1)
-shader_parameter/red_color = Color(0.7587979, 0.47082222, 0, 1)
-shader_parameter/emission_mult = 0.0
-shader_parameter/uv_mult = Vector2(10, 10)
-shader_parameter/uv_scroll = Vector2(0, 0)
-shader_parameter/squiggle = false
-shader_parameter/scale = Vector2(1, 1)
-shader_parameter/strength = 0.5
-shader_parameter/fps = 6.0
-shader_parameter/noise = ExtResource("2_ev5f7")

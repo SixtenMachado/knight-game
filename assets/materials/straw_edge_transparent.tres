@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dchqqeif6lq6d"]
+
+[ext_resource type="Shader" uid="uid://dwmi0n04cpx5l" path="res://assets/shaders/universal_shader_transparent.gdshader" id="1_yb27c"]
+[ext_resource type="Texture2D" uid="uid://b4boef7ldclm" path="res://textures/straw.png" id="2_4bx4e"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yb27c")
+shader_parameter/input_texture = ExtResource("2_4bx4e")
+shader_parameter/black_color = Color(0.1764, 0.2627333, 0.28, 0)
+shader_parameter/red_color = Color(1, 1, 1, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0

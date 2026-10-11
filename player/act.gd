@@ -5,8 +5,13 @@ class_name Act
 
 @export_category("Node Buddies")
 @export var player : Player
+@export var snuffer_area : Area3D
 
-var acting : bool = false
+var acting : bool = false:
+	set(new):
+		acting = new
+		snuffer_area.monitorable = new
+
 var holding : bool = false
 var deadzone : float = 0.5
 var look_direction : Vector3

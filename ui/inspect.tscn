@@ -568,9 +568,9 @@ autoplay = &"RESET"
 
 [node name="AppearSound" type="AudioStreamPlayer" parent="." unique_id=1108202480]
 stream = ExtResource("7_4vnak")
-volume_db = -14.095
+volume_db = -11.095
 pitch_scale = 0.87
 
 [node name="DisappearSound" type="AudioStreamPlayer" parent="." unique_id=895603548]
 stream = ExtResource("8_hq8fk")
-volume_db = -16.134
+volume_db = -13.134

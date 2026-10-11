@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://iiwduqucuch8"]
+
+[ext_resource type="Shader" uid="uid://bs2s0o1pjc75a" path="res://assets/shaders/universal_shader_opaque.gdshader" id="1_77kti"]
+[ext_resource type="Texture2D" uid="uid://drmbre2kvhm76" path="res://textures/fabric.png" id="2_nvfc4"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_77kti")
+shader_parameter/input_texture = ExtResource("2_nvfc4")
+shader_parameter/black_color = Color(0.050980393, 0.1882353, 0.14117648, 1)
+shader_parameter/red_color = Color(0.5729883, 0.5729883, 0.5729883, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0

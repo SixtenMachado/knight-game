@@ -2,9 +2,10 @@
 class_name AutoShaderApplication
 extends Node
 
-var shader_material : ShaderMaterial = preload("res://assets/shaders/shader_material.tres")
 var world_node : Node
 
+static var universal_shader_opaque : Shader = preload("res://assets/shaders/universal_shader_opaque.gdshader")
+static var universal_shader_transparent : Shader = preload("res://assets/shaders/universal_shader_transparent.gdshader")
 
 func _ready() -> void:
 	world_node = get_parent()
@@ -28,16 +29,21 @@ func apply_shader(node: Node):
 				var texture_name := material_name.get_slice("_", 0)
 				print(texture_name, " ", material_name)
 				
+				
+				
 				var material_path = str("res://assets/materials/", material_name, ".tres")
 				if not FileAccess.file_exists(material_path):
 					print("material ", material_name, " doesn't exist yet! Creating it now.")
-					ResourceSaver.save(shader_material, material_path)
+					
+					var new_material : ShaderMaterial = ShaderMaterial.new()
+					if material_name.contains("transparent"):
+						new_material.shader = universal_shader_transparent
+					else:
+						new_material.shader = universal_shader_opaque
+					new_material.set_shader_parameter("red_color", Color.WHITE)
+					ResourceSaver.save(new_material, material_path)
 				
 				var material : ShaderMaterial = load(material_path)
 				var texture_path : String = str("res://textures/", texture_name, ".png")
 				material.set_shader_parameter("input_texture", load(texture_path))
 				mesh.set_surface_override_material(i, material)
-				
-				#Maybe do something with this???
-				#material.take_over_path(material_path)
-				#ResourceSaver.save(material, material_path)

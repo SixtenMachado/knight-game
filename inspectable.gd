@@ -19,3 +19,6 @@ func inspected():
 	ui.en.text = text_en
 	ui.appear(appear_speed, warp_frequency, warp_amplitude, warp_speed, warp_horizontal, texture_override)
 	pass
+
+func destroy():
+	queue_free()

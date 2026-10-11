@@ -14,6 +14,8 @@ var is_disable_movement = false
 var enable_movement_buffer = false
 var is_rotating = false
 
+var in_light = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

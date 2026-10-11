@@ -22,6 +22,8 @@ func _ready() -> void:
 	body_entered.connect(player_entered_check);
 	body_exited.connect(player_exited_check);
 	if Engine.is_editor_hint():
+		set_collision_mask_value(3, true)
+		set_collision_layer_value(1, false)
 		if camera == null:
 			var new_camera : Camera3D = load("res://scenes/knight_camera_3d.tscn").instantiate();
 			add_child(new_camera,true);
@@ -33,6 +35,7 @@ func _ready() -> void:
 			new_collision_shape.owner = get_tree().edited_scene_root;
 			collision_shape = new_collision_shape;
 			collision_shape.shape = BoxShape3D.new();
+			
 		else:
 			collision_shape.shape = collision_shape.shape.duplicate();
 			

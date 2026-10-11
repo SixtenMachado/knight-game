@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bu5u5o5qrtwj2" path="res://player/act.gd" id="12_ebec5"]
 [ext_resource type="Material" uid="uid://c0htwk4jk8ub" path="res://assets/materials/iron_snufferinside.tres" id="13_wodsf"]
 [ext_resource type="Script" uid="uid://b8qtgrfrybjkw" path="res://player/player_animation_tree.gd" id="14_kb6p2"]
+[ext_resource type="Script" uid="uid://v4bu1kuapr2y" path="res://player/knight_light_indicator.gd" id="16_tqiix"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rpa8f"]
 radius = 0.27734375
@@ -22,6 +23,9 @@ height = 1.7641602
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fmjx"]
 size = Vector3(0.15820313, 1.5001221, 0.5848999)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpa8f"]
+size = Vector3(0.25805664, 0.37451172, 0.72317505)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yllr7"]
 animation = &"Walk_B"
@@ -107,6 +111,8 @@ transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTran
 graph_offset = Vector2(0, 12.092076)
 
 [node name="Player" type="CharacterBody3D" unique_id=1601156460 node_paths=PackedStringArray("timer")]
+collision_layer = 4
+collision_mask = 25
 script = ExtResource("1_oul6g")
 speed = 1.6
 rotate_speed = 2.0
@@ -125,10 +131,11 @@ metadata/_custom_type_script = "uid://cuxady6g7wl4r"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8820801, 0)
 shape = SubResource("CapsuleShape3D_rpa8f")
 
-[node name="Act" type="Node" parent="." unique_id=1405550148 node_paths=PackedStringArray("player")]
+[node name="Act" type="Node" parent="." unique_id=1405550148 node_paths=PackedStringArray("player", "snuffer_area")]
 script = ExtResource("12_ebec5")
 turn_speed = 5.0
 player = NodePath("..")
+snuffer_area = NodePath("../knightnew/Armature/Skeleton3D/Held_R/Snuffer/SnufferArea")
 
 [node name="InspectableLooker" type="Area3D" parent="." unique_id=322177714]
 collision_layer = 0
@@ -141,7 +148,7 @@ shape = SubResource("BoxShape3D_5fmjx")
 
 [node name="knightnew" parent="." unique_id=1707190227 instance=ExtResource("4_yllr7")]
 
-[node name="Skeleton3D" parent="knightnew/Armature" parent_id_path=PackedInt32Array(1707190227, 1789414310) index="0" unique_id=487843188]
+[node name="Skeleton3D" parent="knightnew/Armature" parent_id_path=PackedInt32Array(1707190227, 2130524084) index="0" unique_id=318593665]
 bones/0/position = Vector3(0.28430355, 1.1613617, -0.3645169)
 bones/1/position = Vector3(-0.3229917, 1.1735843, -0.37359667)
 bones/4/position = Vector3(0.0021403285, 1.4626088, 1.3614988)
@@ -184,22 +191,33 @@ bones/34/scale = Vector3(0.99999946, 0.9999999, 1.000015)
 bones/35/rotation = Quaternion(0.038105913, -9.8035554e-05, -0.10747046, 0.99347776)
 bones/36/rotation = Quaternion(-0.0033272607, -0.167994, 0.11924091, 0.9785442)
 
-[node name="ArmLower_L" parent="knightnew/Armature/Skeleton3D" index="0" unique_id=499633737]
+[node name="ArmLower_L" parent="knightnew/Armature/Skeleton3D" index="0" unique_id=1958428624]
 transform = Transform3D(0.79323316, 0.24263963, -0.5584863, 0.16085157, -0.9680963, -0.19213676, -0.58728844, 0.06257564, -0.806955, 0.15675549, 1.1108525, -0.05932693)
 
-[node name="Shield" parent="knightnew/Armature/Skeleton3D/ArmLower_L" index="0" unique_id=832539974]
+[node name="Shield" parent="knightnew/Armature/Skeleton3D/ArmLower_L" index="0" unique_id=245783184]
 surface_material_override/0 = ExtResource("6_kb6p2")
 surface_material_override/1 = ExtResource("9_32hag")
 surface_material_override/2 = ExtResource("13_wodsf")
 
-[node name="Held_R" parent="knightnew/Armature/Skeleton3D" index="1" unique_id=663066969]
+[node name="Held_R" parent="knightnew/Armature/Skeleton3D" index="1" unique_id=1244191861]
 transform = Transform3D(0.978645, 0.20134711, -0.041388657, 0.04008843, -0.3844331, -0.9222821, -0.20160952, 0.90092766, -0.38429528, -0.22804226, 0.84439313, -0.010156815)
 
-[node name="Snuffer" parent="knightnew/Armature/Skeleton3D/Held_R" index="0" unique_id=583475299]
+[node name="Snuffer" parent="knightnew/Armature/Skeleton3D/Held_R" index="0" unique_id=951372932]
 surface_material_override/0 = ExtResource("6_kb6p2")
 surface_material_override/1 = ExtResource("13_wodsf")
 
-[node name="Knight" parent="knightnew/Armature/Skeleton3D" index="2" unique_id=1477626977]
+[node name="SnufferArea" type="Area3D" parent="knightnew/Armature/Skeleton3D/Held_R/Snuffer" index="0" unique_id=964144972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 2.9802322e-08, 0.9530443)
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="knightnew/Armature/Skeleton3D/Held_R/Snuffer/SnufferArea" unique_id=922871145]
+transform = Transform3D(1.0000007, 7.450581e-09, -2.3841858e-07, -2.0861626e-07, 0.99984777, 0.017453045, 8.940697e-08, -0.017452419, 0.9998497, 0, 0.15396023, -0.20468003)
+shape = SubResource("BoxShape3D_rpa8f")
+
+[node name="Knight" parent="knightnew/Armature/Skeleton3D" index="2" unique_id=40708285 node_paths=PackedStringArray("player")]
 surface_material_override/0 = ExtResource("10_tqiix")
 surface_material_override/1 = ExtResource("9_32hag")
 surface_material_override/2 = ExtResource("4_2ieo8")
@@ -208,8 +226,10 @@ surface_material_override/4 = ExtResource("6_yllr7")
 surface_material_override/5 = ExtResource("7_kb6p2")
 surface_material_override/6 = ExtResource("8_wodsf")
 surface_material_override/7 = ExtResource("11_e7oew")
+script = ExtResource("16_tqiix")
+player = NodePath("../../../..")
 
-[node name="AnimationPlayer" parent="knightnew" index="1" unique_id=304573357]
+[node name="AnimationPlayer" parent="knightnew" index="1" unique_id=1277073247]
 autoplay = &"Shield"
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1697126217 node_paths=PackedStringArray("player", "act")]

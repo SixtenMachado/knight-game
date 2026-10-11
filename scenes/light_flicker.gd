@@ -1,10 +1,13 @@
 @tool
-extends Light3D
+class_name LightFlicker
+extends Node
+
+@export var light : Light3D
 
 @export var energy_override : float = 1:
 	set(new):
 		energy_override = new
-		light_energy = energy_override
+		light.light_energy = energy_override
 	get:
 		return energy_override
 
@@ -17,14 +20,15 @@ var t := 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	await get_tree().process_frame
-	current = light_energy
+	current = light.light_energy
 	target = randf_range(energy_override*floor_mult, energy_override)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if current >= target:
-		light_energy = randf_range(energy_override*floor_mult, energy_override)
+		light.light_energy = randf_range(energy_override*floor_mult, energy_override)
 		target = randf_range(min_time, max_time)
 		current = 0
 	else:

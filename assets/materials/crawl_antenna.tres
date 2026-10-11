@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://banqtj8ut304a"]
+
+[ext_resource type="Shader" uid="uid://bs2s0o1pjc75a" path="res://assets/shaders/universal_shader_opaque.gdshader" id="1_6yd3u"]
+[ext_resource type="Texture2D" uid="uid://c6yf2v25bfav1" path="res://textures/crawl.png" id="1_21ne5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6yd3u")
+shader_parameter/input_texture = ExtResource("1_21ne5")
+shader_parameter/black_color = Color(0.76862746, 0.28235295, 0.11764706, 1)
+shader_parameter/red_color = Color(1, 0.77254903, 0.39607844, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0

@@ -7,15 +7,37 @@ keep_hf_hz = 20500.0
 [sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
 resource_name = "HardLimiter"
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+predelay_feedback = 0.32
+room_size = 0.42
+damping = 0.33
+spread = 0.5
+wet = 0.26
+
 [resource]
 bus/0/volume_db = 0.46499825
 bus/0/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectHardLimiter_j3pel")
 bus/0/effect/1/enabled = true
-bus/1/name = &"Environment"
+bus/1/name = &"Spatial"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = 0.46499825
+bus/1/volume_db = 0.0
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
+bus/1/effect/0/enabled = true
+bus/2/name = &"Environment"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.46499825
+bus/2/send = &"Spatial"
+bus/3/name = &"Sound"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Spatial"

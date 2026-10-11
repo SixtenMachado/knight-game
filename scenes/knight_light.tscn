@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dnwolj6t8drqo"]
+
+[ext_resource type="Script" uid="uid://thrpkd6v52wn" path="res://scenes/knight_light.gd" id="1_64nbk"]
+[ext_resource type="Script" uid="uid://ca2hyxkj65g6y" path="res://scenes/light_flicker.gd" id="2_wgck1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1j5gx"]
+radius = 1.0
+
+[node name="KnightLight" type="OmniLight3D" unique_id=1326030808 node_paths=PackedStringArray("raycast", "flicker")]
+light_color = Color(1, 0.91333336, 0.8, 1)
+light_energy = 0.9251117
+light_specular = 5.062
+shadow_enabled = true
+omni_range = 1.0
+omni_shadow_mode = 0
+script = ExtResource("1_64nbk")
+collision_sphere = SubResource("SphereShape3D_1j5gx")
+raycast = NodePath("Area3D/RayCast3D")
+flicker = NodePath("Flicker")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1025247092]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=439922261]
+shape = SubResource("SphereShape3D_1j5gx")
+debug_color = Color(1, 0.783, 0.69, 0.37254903)
+
+[node name="RayCast3D" type="RayCast3D" parent="Area3D" unique_id=291390464]
+target_position = Vector3(0, 0, -1)
+
+[node name="Flicker" type="Node" parent="." unique_id=58089605 node_paths=PackedStringArray("light")]
+process_mode = 4
+script = ExtResource("2_wgck1")
+light = NodePath("..")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

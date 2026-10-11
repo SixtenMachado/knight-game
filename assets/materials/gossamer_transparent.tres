@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cmeqov14prtib"]
+
+[ext_resource type="Texture2D" uid="uid://cg33554xawul1" path="res://textures/gossamer.png" id="1_neh2u"]
+[ext_resource type="Shader" uid="uid://dwmi0n04cpx5l" path="res://assets/shaders/universal_shader_transparent.gdshader" id="1_vxolp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vxolp")
+shader_parameter/input_texture = ExtResource("1_neh2u")
+shader_parameter/black_color = Color(0.2668, 0.2436, 0.29, 0.3137255)
+shader_parameter/red_color = Color(0.89599997, 0.88, 1, 0.81960785)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0

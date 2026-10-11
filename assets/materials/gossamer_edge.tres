@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://kt0mu8kevcbv"]
 
 [ext_resource type="Texture2D" uid="uid://cg33554xawul1" path="res://textures/gossamer.png" id="1_titom"]
-[ext_resource type="Shader" uid="uid://numdaejqg6s2" path="res://assets/shaders/color_ramp_double_sided.gdshader" id="1_y67as"]
+[ext_resource type="Shader" uid="uid://dwmi0n04cpx5l" path="res://assets/shaders/universal_shader_transparent.gdshader" id="1_y67as"]
 [ext_resource type="Texture2D" uid="uid://dlihtshu6pcmx" path="res://assets/shaders/squiggle_noise.tres" id="2_y67as"]
 
 [resource]
