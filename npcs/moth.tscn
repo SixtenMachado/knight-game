@@ -3,13 +3,21 @@
 [ext_resource type="Script" uid="uid://cuxady6g7wl4r" path="res://tools/auto_shader_application.gd" id="1_heq6e"]
 [ext_resource type="PackedScene" uid="uid://dmeh3rkefoxf8" path="res://blender/moth.blend" id="2_heq6e"]
 [ext_resource type="Material" uid="uid://cqlo3ii1o8257" path="res://assets/materials/fur_moth.tres" id="3_0l4ny"]
+[ext_resource type="Material" uid="uid://bqb1b5eyyijar" path="res://assets/materials/iron_black.tres" id="3_3kvrk"]
+[ext_resource type="PackedScene" uid="uid://dnwolj6t8drqo" path="res://scenes/knight_light.tscn" id="3_usx7b"]
+[ext_resource type="Material" uid="uid://dhmsr1d3o1e6l" path="res://assets/materials/glass_mothlamp.tres" id="4_macsx"]
 [ext_resource type="Material" uid="uid://dor04n6mfxxpd" path="res://assets/materials/bug_black.tres" id="4_usx7b"]
 [ext_resource type="Material" uid="uid://dfbpjvx4uqb06" path="res://assets/materials/bug_mothbody.tres" id="5_bvb8p"]
+[ext_resource type="Script" uid="uid://b64iungh57387" path="res://scripts/fading_emission.gd" id="5_macsx"]
 [ext_resource type="Material" uid="uid://bvdykjey241ni" path="res://assets/materials/mud_bugeye.tres" id="6_3kvrk"]
+[ext_resource type="Script" uid="uid://cjaqqlnhlbht4" path="res://scripts/snuffable_area.gd" id="7_1bh7b"]
 [ext_resource type="Material" uid="uid://banqtj8ut304a" path="res://assets/materials/crawl_antenna.tres" id="7_macsx"]
 [ext_resource type="Material" uid="uid://cmeqov14prtib" path="res://assets/materials/gossamer_transparent.tres" id="8_1bh7b"]
 [ext_resource type="Material" uid="uid://jxvg2qde2mih" path="res://assets/materials/gossamer_white.tres" id="9_ivugo"]
 [ext_resource type="Material" uid="uid://dchqqeif6lq6d" path="res://assets/materials/straw_edge_transparent.tres" id="10_2l1cw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bh7b"]
+size = Vector3(0.38256836, 0.49902344, 0.3828125)
 
 [node name="Moth" type="Node3D" unique_id=4193604]
 
@@ -19,14 +27,58 @@ metadata/_custom_type_script = "uid://cuxady6g7wl4r"
 
 [node name="moth2" parent="." unique_id=396311427 instance=ExtResource("2_heq6e")]
 
-[node name="moth" parent="moth2" index="0" unique_id=1205917443]
+[node name="Cane" parent="moth2" index="0" unique_id=240498511]
+layers = 2
+cast_shadow = 0
+surface_material_override/0 = ExtResource("3_3kvrk")
+
+[node name="Lamp" parent="moth2" index="1" unique_id=1161055674]
+layers = 2
+cast_shadow = 0
+surface_material_override/0 = ExtResource("3_3kvrk")
+surface_material_override/1 = ExtResource("4_macsx")
+
+[node name="MothLamp" parent="moth2/Lamp" index="0" unique_id=1326030808 instance=ExtResource("3_usx7b")]
+transform = Transform3D(1, 1.6880222e-09, 0, -3.4924597e-10, 1, 1.8626451e-09, 0, -3.7252903e-09, 1.0000001, -0.010799289, -0.35807002, -0.019217134)
+light_energy = 1.417567
+light_cull_mask = 4294967293
+distance_fade_enabled = true
+omni_range = 1.485
+omni_shadow_mode = 1
+radius = 1.485
+flicker_enabled = true
+energy_override = 1.5
+min_time = 0.06
+max_time = 0.12
+
+[node name="SnuffableArea" type="Area3D" parent="moth2/Lamp/MothLamp" unique_id=2143895046 node_paths=PackedStringArray("light", "fade", "collision_shape")]
+transform = Transform3D(1, 1.6298145e-09, 0, -1.7462298e-10, 1, -5.5879354e-09, 0, 1.8626451e-09, 1.0000001, 0.010799289, 0.35807008, 0.019217134)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("7_1bh7b")
+light = NodePath("..")
+fade = NodePath("../../Node")
+collision_shape = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://cjaqqlnhlbht4"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moth2/Lamp/MothLamp/SnuffableArea" unique_id=1406915913]
+transform = Transform3D(1, 2.142624e-07, -1.1175871e-08, -3.4924597e-10, 1, -4.0978193e-07, 0, -3.9488077e-07, 1.0000066, -5.9604645e-08, -0.25048846, -0.008301139)
+shape = SubResource("BoxShape3D_1bh7b")
+
+[node name="Node" type="Node" parent="moth2/Lamp" index="1" unique_id=447202880 node_paths=PackedStringArray("mesh_to_fade")]
+script = ExtResource("5_macsx")
+mesh_to_fade = NodePath("..")
+material_slot = 1
+fade_speed = 20.0
+
+[node name="moth" parent="moth2" index="2" unique_id=2097941847]
 surface_material_override/0 = ExtResource("3_0l4ny")
 surface_material_override/1 = ExtResource("4_usx7b")
 surface_material_override/2 = ExtResource("5_bvb8p")
 surface_material_override/3 = ExtResource("6_3kvrk")
 surface_material_override/4 = ExtResource("7_macsx")
 
-[node name="wings2" parent="moth2" index="1" unique_id=333657410]
+[node name="wings2" parent="moth2" index="3" unique_id=2113636780]
 surface_material_override/0 = ExtResource("8_1bh7b")
 surface_material_override/1 = ExtResource("9_ivugo")
 surface_material_override/2 = ExtResource("10_2l1cw")

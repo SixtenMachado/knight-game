@@ -26,6 +26,7 @@ func _ready() -> void:
 			collision_shape.shape = collision_shape.shape.duplicate();
 			
 func on_area_entered(area : Area3D):
+	print("snuff that")
 	if fade:
 		fade.process_mode = Node.PROCESS_MODE_INHERIT
 	AudioManager.play_sound(sound, area.global_position, "Sound", 3)

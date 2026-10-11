@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dhmsr1d3o1e6l"]
+
+[ext_resource type="Shader" uid="uid://bs2s0o1pjc75a" path="res://assets/shaders/universal_shader_opaque.gdshader" id="1_l1m3r"]
+[ext_resource type="Texture2D" uid="uid://73ei8kir8x1k" path="res://textures/glass.png" id="2_2a7w6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l1m3r")
+shader_parameter/input_texture = ExtResource("2_2a7w6")
+shader_parameter/black_color = Color(0.42352942, 0.36862746, 0.31764707, 1)
+shader_parameter/red_color = Color(1, 0.8, 0.5, 1)
+shader_parameter/emission_mult = 3.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0

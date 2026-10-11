@@ -461,7 +461,7 @@ sky_mode = 1
 [node name="KnightLight" parent="SubViewportContainer/SubViewport/shelter room" unique_id=1326030808 instance=ExtResource("20_pjeai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47683227, 0.16406219, -3.0817332)
 light_color = Color(1, 0.685, 0.55, 1)
-light_energy = 0.42784017
+light_energy = 0.38351822
 omni_range = 2.4
 radius = 2.4
 flicker_enabled = true

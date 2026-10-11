@@ -25,7 +25,7 @@ height = 1.7641602
 size = Vector3(0.15820313, 1.5001221, 0.5848999)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpa8f"]
-size = Vector3(0.25805664, 0.37451172, 0.72317505)
+size = Vector3(0.25805664, 0.59399414, 0.72317505)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yllr7"]
 animation = &"Walk_B"
@@ -214,7 +214,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="knightnew/Armature/Skeleton3D/Held_R/Snuffer/SnufferArea" unique_id=922871145]
-transform = Transform3D(1.0000007, 7.450581e-09, -2.3841858e-07, -2.0861626e-07, 0.99984777, 0.017453045, 8.940697e-08, -0.017452419, 0.9998497, 0, 0.15396023, -0.20468003)
+transform = Transform3D(1.0000024, 7.450581e-09, -5.066395e-07, -6.183982e-07, 0.99984777, 0.0174537, 8.046627e-07, -0.017452419, 0.9998529, 0, 0.044235706, -0.20276487)
 shape = SubResource("BoxShape3D_rpa8f")
 
 [node name="Knight" parent="knightnew/Armature/Skeleton3D" index="2" unique_id=40708285 node_paths=PackedStringArray("player")]

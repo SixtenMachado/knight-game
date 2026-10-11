@@ -9,13 +9,15 @@ func play_sound(sound: AudioStream, location : Vector3, bus : String = "Sound", 
 		audio_player.pitch_scale = randf_range(0.8, 1.2);
 	audio_player.bus = bus;
 	audio_player.volume_db = volume_db;
-	audio_player.global_position = location
 	
 #	Make the spatialization good
 	audio_player.attenuation_filter_cutoff_hz = 9000
 	audio_player.attenuation_filter_db = -8
 	
 	add_child(audio_player);
+	
+	audio_player.global_position = location
+	
 	audio_player.play(start_position);
 	await audio_player.finished;
 	audio_player.queue_free();
