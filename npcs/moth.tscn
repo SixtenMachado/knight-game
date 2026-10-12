@@ -27,12 +27,12 @@ metadata/_custom_type_script = "uid://cuxady6g7wl4r"
 
 [node name="moth2" parent="." unique_id=396311427 instance=ExtResource("2_heq6e")]
 
-[node name="Cane" parent="moth2" index="0" unique_id=240498511]
+[node name="Cane" parent="moth2" index="0" unique_id=1449847742]
 layers = 2
 cast_shadow = 0
 surface_material_override/0 = ExtResource("3_3kvrk")
 
-[node name="Lamp" parent="moth2" index="1" unique_id=1161055674]
+[node name="Lamp" parent="moth2" index="1" unique_id=1446691304]
 layers = 2
 cast_shadow = 0
 surface_material_override/0 = ExtResource("3_3kvrk")
@@ -40,12 +40,12 @@ surface_material_override/1 = ExtResource("4_macsx")
 
 [node name="MothLamp" parent="moth2/Lamp" index="0" unique_id=1326030808 instance=ExtResource("3_usx7b")]
 transform = Transform3D(1, 1.6880222e-09, 0, -3.4924597e-10, 1, 1.8626451e-09, 0, -3.7252903e-09, 1.0000001, -0.010799289, -0.35807002, -0.019217134)
-light_energy = 1.417567
+light_energy = 1.4320722
 light_cull_mask = 4294967293
 distance_fade_enabled = true
 omni_range = 1.485
 omni_shadow_mode = 1
-radius = 1.485
+radius = 1.4849999999999999
 flicker_enabled = true
 energy_override = 1.5
 min_time = 0.06
@@ -71,14 +71,14 @@ mesh_to_fade = NodePath("..")
 material_slot = 1
 fade_speed = 20.0
 
-[node name="moth" parent="moth2" index="2" unique_id=2097941847]
+[node name="moth" parent="moth2" index="2" unique_id=262959093]
 surface_material_override/0 = ExtResource("3_0l4ny")
 surface_material_override/1 = ExtResource("4_usx7b")
 surface_material_override/2 = ExtResource("5_bvb8p")
 surface_material_override/3 = ExtResource("6_3kvrk")
 surface_material_override/4 = ExtResource("7_macsx")
 
-[node name="wings2" parent="moth2" index="3" unique_id=2113636780]
+[node name="wings2" parent="moth2" index="3" unique_id=1143395497]
 surface_material_override/0 = ExtResource("8_1bh7b")
 surface_material_override/1 = ExtResource("9_ivugo")
 surface_material_override/2 = ExtResource("10_2l1cw")
