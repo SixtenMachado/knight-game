@@ -16,6 +16,8 @@ var is_rotating = false
 
 var in_light = false
 
+func _ready() -> void:
+	PlayerData.player = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://s4dkg3qgx8lv"]
+
+[ext_resource type="Material" uid="uid://3xwi27wku6pi" path="res://assets/materials/mail_rock_mossy.tres" id="1_f0iok"]
+[ext_resource type="PackedScene" uid="uid://c5l6g7cnkc3r2" path="res://npcs/moth.tscn" id="1_fa2jx"]
+[ext_resource type="Script" uid="uid://bh7cgrh6l8i3t" path="res://scripts/french_leon.gd" id="2_0fs70"]
+[ext_resource type="Script" uid="uid://dryyvfjw1kyua" path="res://npcs/npc_navigation.gd" id="2_7d7p8"]
+[ext_resource type="PackedScene" uid="uid://br250up88v16q" path="res://player/player.tscn" id="4_kn3op"]
+[ext_resource type="Script" uid="uid://c020ha5rmf5ul" path="res://scripts/knight_world_environment.gd" id="6_a27kl"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_7d7p8"]
+vertices = PackedVector3Array(3.5, 0.5, 1.5, 3.5, 0.5, 4.5, 4.5, 0.5, 4.5, 4.5, 0.5, -4.5, 1.25, 0.5, 1.5, 1.75, 0.5, 1, -4.5, 0.5, -4.5, -4.5, 0.5, 4.5, 3, 0.5, 1, 1.25, 0.5, 4.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 3), PackedInt32Array(3, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(3, 0, 8), PackedInt32Array(3, 8, 5), PackedInt32Array(4, 9, 7)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5fmjx"]
+size = Vector2(10, 10)
+subdivide_width = 20
+subdivide_depth = 20
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f0iok"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0w5i"]
+load_path = "res://.godot/imported/knightsky.png-28073571a94fc0ba66fe8a50b00eb1a1.s3tc.ctex"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_118ff"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0.011764706, 0.011764706, 1)
+sky_cover = SubResource("CompressedTexture2D_p0w5i")
+sky_cover_modulate = Color(0.9019608, 0.95686275, 1, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+ground_energy_multiplier = 0.0
+sun_angle_max = 4.01
+sun_curve = 1.639245
+use_debanding = false
+energy_multiplier = 5.68
+
+[sub_resource type="Sky" id="Sky_abubf"]
+sky_material = SubResource("ProceduralSkyMaterial_118ff")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_oqfid"]
+background_mode = 2
+sky = SubResource("Sky_abubf")
+ambient_light_source = 1
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
+reflected_light_source = 1
+volumetric_fog_density = 0.0092
+volumetric_fog_albedo = Color(0.18000486, 0.18000486, 0.18000486, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1733163274]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1281370621]
+navigation_mesh = SubResource("NavigationMesh_7d7p8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=1325104493]
+material_override = ExtResource("1_f0iok")
+mesh = SubResource("PlaneMesh_5fmjx")
+
+[node name="Moth" parent="NavigationRegion3D/MeshInstance3D" unique_id=4193604 instance=ExtResource("1_fa2jx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.364613, 0.7458477, 3.7751713)
+script = ExtResource("2_7d7p8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="NavigationRegion3D/MeshInstance3D/Moth" unique_id=1426499358]
+target_desired_distance = 2.0
+simplify_path = true
+debug_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D" unique_id=441571405]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D" unique_id=512748822]
+shape = SubResource("ConcavePolygonShape3D_f0iok")
+
+[node name="KnightCamera" type="Camera3D" parent="." unique_id=871811359]
+transform = Transform3D(0.01745143, -0.77150685, 0.63598156, 0, 0.6360784, 0.7716244, -0.9998477, -0.013465948, 0.011100478, 6.723009, 5.0147433, 0.3681379)
+script = ExtResource("2_0fs70")
+metadata/_custom_type_script = "uid://bh7cgrh6l8i3t"
+
+[node name="Player" parent="." unique_id=1601156460 instance=ExtResource("4_kn3op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464106, 0.39063025, -2.904255)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1432254131]
+environment = SubResource("Environment_oqfid")
+script = ExtResource("6_a27kl")
+
+[node name="Sky" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1384218088]
+transform = Transform3D(-0.29175112, 0.22634001, -0.9293285, -0.8703305, 0.34019026, 0.3560835, 0.39674443, 0.9127107, 0.09773973, 4.494691, 12.717668, -2.2541957)
+light_color = Color(0.92831415, 0.9999998, 0.99959224, 1)
+light_energy = 0.954
+light_indirect_energy = 0.095
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_normal_bias = 3.165
+shadow_blur = 0.0
+directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 145.5
+directional_shadow_pancake_size = 0.0
+sky_mode = 2
+
+[node name="DirectionalLight" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1936343907]
+transform = Transform3D(-0.29175112, 0.22634001, -0.9293285, -0.8703305, 0.34019026, 0.3560835, 0.39674443, 0.9127107, 0.09773973, 4.494691, 12.717668, -2.2541957)
+light_color = Color(0.92831415, 0.9999998, 0.99959224, 1)
+light_energy = 0.031
+light_indirect_energy = 0.095
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 3.165
+shadow_blur = 0.0
+directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 75.7
+directional_shadow_pancake_size = 0.0
+sky_mode = 1
