@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://cd6xw0esc5ed6"
 [sub_resource type="Compositor" id="Compositor_2bu0n"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_6a6wx")])
 
-[node name="Camera3D" type="Camera3D" unique_id=1231323592]
+[node name="KnightCamera" type="Camera3D" unique_id=1231323592]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 compositor = SubResource("Compositor_2bu0n")
 script = ExtResource("2_wd8nl")

@@ -8,8 +8,8 @@
 render_priority = 0
 shader = ExtResource("1_2niu5")
 shader_parameter/input_texture = ExtResource("2_u5rjy")
-shader_parameter/black_color = Color(0.19109999, 0.205275, 0.21, 1)
-shader_parameter/red_color = Color(0.31, 0.31, 0.31, 1)
+shader_parameter/black_color = Color(0.17091468, 0.1820541, 0.18948007, 1)
+shader_parameter/red_color = Color(0.29586658, 0.2958665, 0.29586646, 1)
 shader_parameter/emission_mult = 0.0
 shader_parameter/uv_mult = Vector2(10, 10)
 shader_parameter/uv_scroll = Vector2(0, 0)
