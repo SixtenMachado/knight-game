@@ -32,6 +32,7 @@ script = ExtResource("1_heq6e")
 metadata/_custom_type_script = "uid://cuxady6g7wl4r"
 
 [node name="moth2" parent="." unique_id=396311427 instance=ExtResource("2_heq6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20872343, 0)
 
 [node name="Cane" parent="moth2" index="0" unique_id=1449847742]
 layers = 2
@@ -46,7 +47,7 @@ surface_material_override/1 = ExtResource("4_macsx")
 
 [node name="MothLamp" parent="moth2/Lamp" index="0" unique_id=1326030808 instance=ExtResource("3_usx7b")]
 transform = Transform3D(1, 1.6880222e-09, 0, -3.4924597e-10, 1, 1.8626451e-09, 0, -3.7252903e-09, 1.0000001, -0.010799289, -0.35807002, -0.019217134)
-light_energy = 1.4440573
+light_energy = 1.4525218
 light_cull_mask = 4294967293
 distance_fade_enabled = true
 omni_range = 1.485
@@ -90,7 +91,7 @@ surface_material_override/1 = ExtResource("9_ivugo")
 surface_material_override/2 = ExtResource("10_2l1cw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1702647344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86499023, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6562668, 0)
 shape = SubResource("CapsuleShape3D_rpa8f")
 
 [editable path="moth2"]

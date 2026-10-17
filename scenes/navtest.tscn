@@ -13,6 +13,7 @@
 [sub_resource type="NavigationMesh" id="NavigationMesh_7d7p8"]
 vertices = PackedVector3Array(-4.250001, 0.5, -4.250001, -4.250001, 0.5, 4.499999, 4.499999, 0.5, 4.499999, 4.499999, 0.5, -4.250001)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_collision_mask = 4294901761
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5fmjx"]
 size = Vector2(10, 10)
@@ -104,9 +105,10 @@ navigation_mesh = SubResource("NavigationMesh_7d7p8")
 material_override = ExtResource("1_f0iok")
 mesh = SubResource("PlaneMesh_5fmjx")
 
-[node name="Moth" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D" unique_id=4193604 instance=ExtResource("1_fa2jx")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.364613, 0.5183675, 3.7751713)
+[node name="Moth" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D" unique_id=4193604 node_paths=PackedStringArray("home_node") instance=ExtResource("1_fa2jx")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.364613, 1.6444274, 3.7751713)
 script = ExtResource("2_7d7p8")
+home_node = NodePath("../../../Marker3D")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Moth" unique_id=1426499358]
 target_desired_distance = 2.0
@@ -126,28 +128,30 @@ shape = SubResource("CapsuleShape3D_wd8nl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/StaticBody3D" unique_id=512748822]
 shape = SubResource("ConcavePolygonShape3D_f0iok")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D" unique_id=1104016300]
+[node name="Walls" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D" unique_id=1738864838]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls" unique_id=1104016300]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/StaticBody3D2" unique_id=46593421]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls/StaticBody3D2" unique_id=46593421]
 shape = SubResource("ConcavePolygonShape3D_f0iok")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D" unique_id=111409686]
+[node name="StaticBody3D3" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls" unique_id=111409686]
 transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/StaticBody3D3" unique_id=240046521]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls/StaticBody3D3" unique_id=240046521]
 shape = SubResource("ConcavePolygonShape3D_f0iok")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D" unique_id=975895294]
+[node name="StaticBody3D4" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls" unique_id=975895294]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -5, 0, 2.1855695e-07)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/StaticBody3D4" unique_id=1765069049]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls/StaticBody3D4" unique_id=1765069049]
 shape = SubResource("ConcavePolygonShape3D_f0iok")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D" unique_id=1300271469]
+[node name="StaticBody3D5" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls" unique_id=1300271469]
 transform = Transform3D(1.3113416e-07, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.3113416e-07, -5.7320566e-15, 5, 0, -2.1855695e-07)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/StaticBody3D5" unique_id=395243569]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D/MeshInstance3D/Walls/StaticBody3D5" unique_id=395243569]
 shape = SubResource("ConcavePolygonShape3D_f0iok")
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Node3D" unique_id=1231323592 instance=ExtResource("4_a27kl")]
@@ -177,9 +181,9 @@ directional_shadow_pancake_size = 0.0
 sky_mode = 2
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D/WorldEnvironment" unique_id=1936343907]
-transform = Transform3D(-0.29175112, 0.22634001, -0.9293285, -0.8703305, 0.34019026, 0.3560835, 0.39674443, 0.9127107, 0.09773973, 4.494691, 12.717668, -2.2541957)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.494691, 12.717668, -2.2541957)
 light_color = Color(0.92831415, 0.9999998, 0.99959224, 1)
-light_energy = 0.094
+light_energy = 0.239
 light_indirect_energy = 0.095
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
@@ -192,6 +196,10 @@ directional_shadow_fade_start = 0.0
 directional_shadow_max_distance = 75.7
 directional_shadow_pancake_size = 0.0
 sky_mode = 1
+
+[node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/Node3D" unique_id=865137286]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.82964945, 0.9432646, 2.3302968)
+gizmo_extents = 0.47
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=895203268]
 material = SubResource("ShaderMaterial_p0w5i")
