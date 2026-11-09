@@ -183,7 +183,7 @@ sky_mode = 2
 [node name="DirectionalLight" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D/WorldEnvironment" unique_id=1936343907]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.494691, 12.717668, -2.2541957)
 light_color = Color(0.92831415, 0.9999998, 0.99959224, 1)
-light_energy = 0.239
+light_energy = 6.709
 light_indirect_energy = 0.095
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0

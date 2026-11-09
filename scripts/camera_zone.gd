@@ -1,4 +1,5 @@
-@tool extends Area3D
+@tool 
+extends Area3D
 class_name CameraZone
 @export var camera : KnightCamera;
 @export var collision_shape : CollisionShape3D;
@@ -19,6 +20,7 @@ func player_exited_check(body) -> void:
 	camera.leon.hide()
 	
 func _ready() -> void:
+	print("balatro")
 	body_entered.connect(player_entered_check);
 	body_exited.connect(player_exited_check);
 	if Engine.is_editor_hint():

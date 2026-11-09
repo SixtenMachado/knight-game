@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://s3a5tae75o28"]
+
+[ext_resource type="Shader" uid="uid://bs2s0o1pjc75a" path="res://assets/shaders/universal_shader_opaque.gdshader" id="1_eudqr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_eudqr")
+shader_parameter/black_color = Color(0, 0, 0, 1)
+shader_parameter/red_color = Color(1, 1, 1, 1)
+shader_parameter/emission_mult = 0.0
+shader_parameter/uv_mult = Vector2(10, 10)
+shader_parameter/uv_scroll = Vector2(0, 0)
+shader_parameter/squiggle = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0
