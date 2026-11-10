@@ -9,7 +9,7 @@ radius = 1.0
 [node name="KnightLight" type="OmniLight3D" unique_id=1326030808 node_paths=PackedStringArray("raycast", "flicker")]
 light_color = Color(1, 0.91333336, 0.8, 1)
 light_energy = 0.9251117
-light_specular = 5.062
+light_specular = 0.0
 shadow_enabled = true
 omni_range = 1.0
 omni_shadow_mode = 0
